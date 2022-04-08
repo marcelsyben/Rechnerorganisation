@@ -1,0 +1,172 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dc:/users/Marcel/Desktop/v4/Hardware/Peripherie
+Esiebensegment_anzeige
+Z0 w1612980127
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 33
+Z3 dc:/users/marcel/desktop/v4/hardware/peripherie
+Z4 8Siebensegment_Anzeige.vhd
+Z5 FSiebensegment_Anzeige.vhd
+l0
+L4 1
+VY]n4EVo9`=5PoY82>ZH<F3
+!s100 ASk3z731hl6R1K]nQIZZC0
+Z6 OV;C;2020.3;71
+32
+Z7 !s110 1622640667
+!i10b 1
+Z8 !s108 1622640667.000000
+Z9 !s90 -reportprogress|300|Siebensegment_Anzeige.vhd|
+Z10 !s107 Siebensegment_Anzeige.vhd|
+!i113 1
+Z11 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+Z12 DEx4 work 21 siebensegment_anzeige 0 22 Y]n4EVo9`=5PoY82>ZH<F3
+!i122 33
+l56
+L25 72
+V8_7dS5mX35`o05LDXRN?o3
+!s100 QnfM?U_6b`kiFS]__FC<F3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Essp
+Z13 w1622564949
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+!i122 34
+R3
+Z15 8SSP.vhd
+Z16 FSSP.vhd
+l0
+L5 1
+V497PYE9NOWX7:5A^o^G<e1
+!s100 ?M7j@_a^?F_]GQ3^zDLXE3
+R6
+32
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|SSP.vhd|
+Z18 !s107 SSP.vhd|
+!i113 1
+R11
+Artl
+R12
+R14
+R1
+R2
+Z19 DEx4 work 3 ssp 0 22 497PYE9NOWX7:5A^o^G<e1
+!i122 34
+l47
+L26 122
+VkX<>U1EaDMDO7OV=T0hci3
+!s100 ]O@^G;mzbhL_ioR]jBF=a3
+R6
+32
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+Essp_testbench
+R0
+!i122 36
+R3
+Z20 8SSP_testbench.vhd
+Z21 FSSP_testbench.vhd
+l0
+L6 1
+VP3Mbib41o<:Ja6NziQ3=o3
+!s100 5:Qh57THKCaPQWW=EMTQF0
+R6
+32
+Z22 !s110 1622640668
+!i10b 1
+Z23 !s108 1622640668.000000
+Z24 !s90 -reportprogress|300|SSP_testbench.vhd|
+Z25 !s107 SSP_testbench.vhd|
+!i113 1
+R11
+Atest
+R14
+R19
+Z26 DEx4 work 13 ssp_testbench 0 22 P3Mbib41o<:Ja6NziQ3=o3
+Z27 DPx4 work 17 wb_test_pack_v2_0 0 22 ^P9M;3F[S=zK^GW5YT<HU1
+R1
+R2
+!i122 36
+l37
+Z28 L13 156
+Z29 V`?Vg^5=GiL;a`VE:H5kCe1
+Z30 !s100 h6bLBNIQ?6VT4XA?9NlSQ2
+R6
+32
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R11
+Pwb_test_pack_v2_0
+R1
+R2
+!i122 35
+Z31 w1584087902
+R3
+Z32 8wb_test_pack_v2_0.vhd
+Z33 Fwb_test_pack_v2_0.vhd
+l0
+L4 1
+V^P9M;3F[S=zK^GW5YT<HU1
+!s100 ]5_UcaZJD`8=Cej^_i_YV0
+R6
+32
+b1
+R22
+!i10b 1
+R23
+Z34 !s90 -reportprogress|300|wb_test_pack_v2_0.vhd|
+Z35 !s107 wb_test_pack_v2_0.vhd|
+!i113 1
+R11
+Bbody
+R27
+R1
+R2
+!i122 35
+l0
+L94 1
+V]L8o5`@P@TLD8L>l;7b491
+!s100 mIFa:`Oz3?;@ZR]TMSYXJ2
+R6
+32
+R22
+!i10b 1
+R23
+R34
+R35
+!i113 1
+R11

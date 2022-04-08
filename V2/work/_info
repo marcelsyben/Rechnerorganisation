@@ -1,0 +1,245 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/users/marcel/desktop/v2_2021-04-20/v2
+Ebtn2txd
+Z1 w1619527612
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 33
+R0
+Z4 8BTN2TxD.vhd
+Z5 FBTN2TxD.vhd
+l0
+L4 1
+VQ<1OC_E0l<XM2SRB]MzY>0
+!s100 >:d3V2jd3fnOkkQKLDQ>00
+Z6 OV;C;2020.3;71
+32
+Z7 !s110 1619894627
+!i10b 1
+Z8 !s108 1619894627.000000
+Z9 !s90 -reportprogress|300|-work|work|BTN2TxD.vhd|
+Z10 !s107 BTN2TxD.vhd|
+!i113 1
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Aarch
+Z13 DEx4 work 11 uart_sender 0 22 ]5HVK5MQnQcCODiilnzLG1
+Z14 DEx4 work 7 df_fifo 0 22 Pa896A1dXJNgez9EEM^6:2
+Z15 DEx4 work 7 btn2txd 0 22 Q<1OC_E0l<XM2SRB]MzY>0
+Z16 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R3
+R2
+Z17 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+!i122 33
+l35
+L20 123
+Vc^OcU<VIn8a]7NWNTKC`O2
+!s100 @Ic<]dEQlR^2XM6CRYWkc0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ebtn2txd_tb
+Z18 w1612980127
+!i122 34
+R0
+Z19 8BTN2TxD_tb.vhd
+Z20 FBTN2TxD_tb.vhd
+l0
+L1 1
+V`2?XDgS7FZ1bA8G`d6D?W0
+!s100 Z;hcfBh6kEzeMToQfVTSC0
+R6
+32
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-work|work|BTN2TxD_tb.vhd|
+Z22 !s107 BTN2TxD_tb.vhd|
+!i113 1
+R11
+R12
+Atest
+R15
+Z23 DEx4 work 10 btn2txd_tb 0 22 `2?XDgS7FZ1bA8G`d6D?W0
+R16
+R17
+R2
+R3
+!i122 34
+l19
+Z24 L8 109
+Z25 V6V<03^^zLhXBM49fGAljV1
+Z26 !s100 K33DXmfJ@:0>K1iWiSj<?0
+R6
+32
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 1
+R11
+R12
+Edf_fifo
+Z27 w1584087902
+R2
+R3
+!i122 31
+R0
+Z28 8DF_Fifo.vhd
+Z29 FDF_Fifo.vhd
+l0
+L8 1
+VPa896A1dXJNgez9EEM^6:2
+!s100 ^0eO8ih:Bz0T<kKZhbkK<2
+R6
+32
+R7
+!i10b 1
+R8
+Z30 !s90 -reportprogress|300|-work|work|DF_Fifo.vhd|
+Z31 !s107 DF_Fifo.vhd|
+!i113 1
+R11
+R12
+Aarch
+R14
+R3
+R2
+R17
+!i122 31
+l42
+L31 65
+VFAFQYJFR>?>7CceHAojJ^2
+!s100 1khKZHDmTe6LGObG6A7F>1
+R6
+32
+R7
+!i10b 1
+R8
+R30
+R31
+!i113 1
+R11
+R12
+Euart_sender
+Z32 w1619527248
+R2
+R3
+!i122 32
+R0
+Z33 8UART_Sender.vhd
+Z34 FUART_Sender.vhd
+l0
+L6 1
+V]5HVK5MQnQcCODiilnzLG1
+!s100 ZBBWK<4_7kRKT`4=DT^z63
+R6
+32
+R7
+!i10b 1
+R8
+Z35 !s90 -reportprogress|300|-work|work|UART_Sender.vhd|
+Z36 !s107 UART_Sender.vhd|
+!i113 1
+R11
+R12
+Aarch
+R13
+R3
+R2
+R17
+!i122 32
+l31
+L26 141
+VmPXNeIPXGT@Pdazb>BH=X3
+!s100 3zH5m=^gn[kbDGECod;413
+R6
+32
+R7
+!i10b 1
+R8
+R35
+R36
+!i113 1
+R11
+R12
+Anur_simulation
+R13
+R3
+R2
+R17
+!i122 6
+l28
+L26 50
+VV7PNoiL96Ydb75R;Rj;`^3
+!s100 N8P;MMKK0GCTe4@[[6G_f3
+R6
+32
+!s110 1619482391
+!i10b 1
+!s108 1619482391.000000
+!s90 -reportprogress|300|-work|work|UART_Sender_nur_Simulation.vhd|
+!s107 UART_Sender_nur_Simulation.vhd|
+!i113 1
+R11
+R12
+FUART_Sender_nur_Simulation.vhd
+w1610472600
+8UART_Sender_nur_Simulation.vhd
+Euart_sender_tb
+R27
+!i122 26
+Z37 dC:/users/marcel/desktop/v2_2021-04-20/v2
+Z38 8UART_Sender_tb.vhd
+Z39 FUART_Sender_tb.vhd
+l0
+L1 1
+VXV8=^[igLE8aV2aNM=WOj0
+!s100 @SBVMJF]7XzajAPe;Rn=52
+R6
+32
+Z40 !s110 1619535096
+!i10b 1
+Z41 !s108 1619535096.000000
+Z42 !s90 -reportprogress|300|UART_Sender_tb.vhd|
+Z43 !s107 UART_Sender_tb.vhd|
+!i113 1
+R12
+Atest
+DEx4 work 11 uart_sender 0 22 zo6of?JAEPFN@V<Tkijh82
+DEx4 work 14 uart_sender_tb 0 22 XV8=^[igLE8aV2aNM=WOj0
+R16
+R17
+R2
+R3
+!i122 26
+l22
+L8 146
+V30FPD38jcfY6]XooUW]Ib1
+!s100 gE_Qd^00EXfdjKV;nhdz50
+R6
+32
+R40
+!i10b 1
+R41
+R42
+R43
+!i113 1
+R12

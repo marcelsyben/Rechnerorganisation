@@ -1,0 +1,383 @@
+# ------------------------------------------------------------------------------
+# Praktikum Recherorganisation
+# Versuch 5
+# Teste_UART
+# Hochschule Osnabrueck / Bernhard Lang, Rainer H�ckmann
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# Prozessor-Konstanten
+# ------------------------------------------------------------------------------
+.set SP_INIT, 0x00008000
+
+.set Status, $12
+.set Cause,  $13
+.set EPC,    $14
+
+.set IE,  (1<<0)
+.set EXL, (1<<1)
+.set IM0, (1<<8)
+.set IM2, (1<<10)
+.set IM3, (1<<11)
+.set IM4, (1<<12)
+.set IP0, (1<<8)
+.set IP2, (1<<10)
+.set IP3, (1<<11)
+.set IP4, (1<<12)
+
+# ------------------------------------------------------------------------------
+# Peripherie-Definitionen
+# ------------------------------------------------------------------------------
+.set UART_Basis,         0x8300
+.set UART_TxData,        0
+.set UART_RxData,        4
+.set UART_Kontroll,      8
+.set UART_Status,        12
+
+.set UART_TxD_IrEn,      0
+.set UART_RxD_IrEn,      1
+.set UART_TxD_OK,        0
+.set UART_RxD_OK,        1
+.set UART_RxD_Err,       2
+
+# ------------------------------------------------------------------------------
+# Anwendungsspezifische Definitionen
+# ------------------------------------------------------------------------------
+.set TX_FIFO_GROESSE,    16
+
+# ------------------------------------------------------------------------------
+#  Globale Variablen
+# ------------------------------------------------------------------------------
+.section .data
+Rx_Zeichen:         .space 4                  # volatile int Rx_Zeichen;
+Tx_Schreibindex:    .space 4                  # volatile int Tx_Schreibindex;
+Tx_Leseindex:       .space 4                  # volatile int TX_Leseindex;
+Tx_Anzahl:          .space 4                  # volatile int Tx_Anzahl;
+Tx_Fifo:            .space TX_FIFO_GROESSE    # char Tx_Fifo[TX_FIFO_GROESSE];
+Bin_to_ASCII:       .ascii "0123456789ABCDEF" # const char Bin_to_ASCII[16] = "0123456789ABCDEF";
+
+# ------------------------------------------------------------------------------
+# Einsprungpunkte
+# ------------------------------------------------------------------------------
+.section .text
+
+Reset_Vector:
+    beq $zero, $zero, main
+
+IP0_Vector:
+	beq $zero, $zero, IP0_Vector
+
+IP2_Vector:
+    beq $zero, $zero, IP2_Vector
+
+IP3_Vector:
+    beq $zero, $zero, Transmit_Handler
+
+IP4_Vector:
+    beq $zero, $zero, Receive_Handler
+
+# ------------------------------------------------------------------------------
+# int bit_von(int Wert, int Bitnummer)
+# ------------------------------------------------------------------------------
+#   $a0: Wert
+#   $a1: Bitnummer
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+bit_von:
+	srlv  $t0, $a0, $a1
+    andi  $v0, $t0, 1
+    jr    $ra
+
+# ------------------------------------------------------------------------------
+# void setze_bit(int Adresswert, int Bitnummer)
+# ------------------------------------------------------------------------------
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+setze_bit:
+    ori   $t0, $zero, 1
+    sllv  $t1, $t0, $a1
+    lw    $t2, 0($a0)
+    or    $t3, $t1, $t2
+    sw    $t3, 0($a0)
+    jr    $ra
+
+# ------------------------------------------------------------------------------
+# void loesche_bit(int Adresswert, int Bitnummer)
+# ------------------------------------------------------------------------------
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+loesche_bit:
+    ori	  $t5, $zero, 0xffff
+    ori   $t6, $zero, 16
+    sllv  $t7, $t5, $t6
+    or    $t8, $t7, $t5
+
+    ori   $t0, $zero, 1
+    sllv  $t1, $t0, $a1
+    xor   $t4, $t1, $t8
+    lw    $t2, 0($a0)
+    and   $t3, $t4, $t2
+    sw    $t3, 0($a0)
+    addiu $k1, $t3, 0
+    jr    $ra                             # Ruecksprung
+
+# ------------------------------------------------------------------------------
+# void Transmit_Handler()
+# ------------------------------------------------------------------------------
+Transmit_Handler:
+# TODO: Interrupt-Handler ergaenzen
+# Achtung: ALLE (auch die in Unterprogrammen) verwendeten Register auf dem Stack sichern!
+# Am Ende die auf dem Stack gesicherten Register wiederherstellen!
+    addiu $sp, $sp, -40
+    sw    $t0, 0($sp)
+    sw    $t1, 4($sp)
+    sw    $t2, 8($sp)
+    sw    $t3, 12($sp)
+    sw    $t4, 16($sp)
+    sw    $t5, 20($sp)
+    sw    $t6, 24($sp)
+    sw    $t7, 28($sp)
+    sw    $a0, 32($sp)
+    sw    $a1, 36($sp)
+
+    la    $t0, Tx_Anzahl                # if Tx_Anzahl <= 0  ==> Else
+    lw    $t1, 0($t0)
+    blez  $t1, Else
+
+    # *((int*)(UART_Basis + UART_TxData)) = Tx_Fifo[Tx_Leseindex];
+    la    $t1, Tx_Fifo
+    la    $t2, Tx_Leseindex
+    addu $t1, $t1, $t2
+    lw    $t2, 0($t1)
+    li    $t0, UART_Basis
+    sw    $t2, UART_TxData(UART_Basis)
+    
+
+    la    $t1, Tx_Leseindex             # Tx_Leseindex++
+    lw    $t0, 0($t1)
+    addiu $t0, $t0, 1
+    sw    $t0, 0($t1)
+
+    la    $t0, Tx_Leseindex
+    lw    $t1, 0($t0)
+    ori   $t0, $zero, TX_FIFO_GROESSE
+    bne   $t1, $t0, EndifInner          # if Tx_Leseindex /= TX_FIFO_GROESSE  ==> EndifInner
+
+    la    $t1, Tx_Leseindex
+    sw    $zero, 0($t1)                 # Tx_Leseindex = 0
+
+    EndifInner:
+    la    $t1, Tx_Anzahl
+    lw    $t0, 0($t1)
+    addiu $t0, $t0, -1
+    sw    $t0, 0($t1)                   # Tx_Anzahl--
+    beq   $zero, $zero, Endif           # ==> Endif
+
+    Else:
+    li    $t0, UART_Basis
+    addiu $a0, $t0, UART_Kontroll
+
+    li    $a1, UART_TxD_IrEn
+
+    addiu $sp, $sp, -4
+
+    sw    $ra, 0($sp)
+
+    la    $t0, loesche_bit
+    jalr  $ra, $t0
+
+    lw    $ra, 0($sp)
+    addiu $sp, $sp, 4
+
+    Endif:
+    lw    $t0, 0($sp)
+    lw    $t1, 4($sp)
+    lw    $t2, 8($sp)
+    lw    $t3, 12($sp)
+    lw    $t4, 16($sp)
+    lw    $t5, 20($sp)
+    lw    $t6, 24($sp)
+    lw    $t7, 28($sp)
+    lw    $a0, 32($sp)
+    lw    $a1, 36($sp)
+    addiu $sp, $sp, 40
+
+    eret
+# ------------------------------------------------------------------------------
+# void Receive_Handler()
+# ------------------------------------------------------------------------------
+Receive_Handler:
+    addiu $sp, $sp, -8
+    sw    $t0, 0($sp)
+    sw    $t1, 4($sp)
+
+    li    $t1, UART_Basis                     # Rx_Zeichen = *((char*)(UART_Basis + UART_RxData));
+    lw    $t0, UART_RxData($t1)
+    la    $t1, Rx_Zeichen
+    sw    $t0, 0($t1)
+
+    lw    $t0, 0($sp)
+    lw    $t1, 4($sp)
+    addiu $sp, $sp, 8
+    eret
+
+# ------------------------------------------------------------------------------
+# int Rx_Zeichen_holen()
+# ------------------------------------------------------------------------------
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+Rx_Zeichen_holen:
+    addiu $sp, $sp, -4
+    sw    $ra, 0($sp)
+
+    li    $a0, UART_Basis                     # loesche_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+    addiu $a0, $a0, UART_Kontroll
+    ori   $a1, $zero, UART_RxD_IrEn
+    la    $t1, loesche_bit
+    jalr  $ra, $t1
+
+    la    $t1, Rx_Zeichen                     # Zeichen = Rx_Zeichen
+    lw    $v0, 0($t1)
+    addiu $t0, $zero, -1                      # Rx_Zeichen = -1;
+    sw    $t0, 0($t1)
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+    addiu $a0, $a0, UART_Kontroll
+    ori   $a1, $zero, UART_RxD_IrEn
+    la    $t1, setze_bit
+    jalr  $ra, $t1
+
+    lw    $ra, 0($sp)
+    addiu $sp, $sp, 4
+    jr    $ra                                 # return Zeichen
+
+# ------------------------------------------------------------------------------
+# void Tx_Fifo_schreiben(int Wert)
+# ------------------------------------------------------------------------------
+#   $a0: Wert
+# ------------------------------------------------------------------------------
+Tx_Fifo_schreiben:
+    addiu $sp, $sp, -4
+    sw    $ra, 0($sp)
+
+Tx_Fifo_s_while:
+    la    $t1, Tx_Anzahl                      # while (Tx_Anzahl == TX_FIFO_GROESSE) {
+    lw    $t0, 0($t1)
+    addiu $t0, $t0, -TX_FIFO_GROESSE
+    beq   $t0, $zero, Tx_Fifo_s_while         # }
+
+    addiu $sp, $sp, -4                        # $a0 sichern
+    sw    $a0, 0($sp)
+
+    li    $a0, UART_Basis                     # loesche_bit(UART_Basis + UART_Kontroll, UART_TxD_IrEn);
+    addiu $a0, $a0, UART_Kontroll
+    ori   $a1, $zero, UART_TxD_IrEn
+    la    $t1, loesche_bit
+    jalr  $ra, $t1
+
+    lw    $a0, 0($sp)                         # $a0 wiederherstellen
+    addiu $sp, $sp, 4
+
+    la     $t1, Tx_Schreibindex               # Tx_Fifo[Tx_Schreibindex] = Wert;
+    lw     $t0, 0($t1)
+    la     $t1, Tx_Fifo
+    addu   $t1, $t1, $t0
+    sb     $a0, 0($t1)
+
+    la     $t1, Tx_Schreibindex               # Tx_Schreibindex++;
+    lw     $t0, 0($t1)
+    addiu  $t0, $t0, 1
+    sw     $t0, 0($t1)
+
+    addiu  $t0, $t0, -TX_FIFO_GROESSE         # if(Tx_Schreibindex==TX_FIFO_GROESSE) {
+    bne    $t0, $zero, Tx_Fifo_s_Z
+    ori    $t0, $zero, 0                      #     Tx_Schreibindex = 0;
+    la     $t1, Tx_Schreibindex
+    sw     $t0, 0($t1)                        # }
+
+Tx_Fifo_s_Z:
+    la     $t1, Tx_Anzahl                     # Tx_Anzahl++;
+    lw     $t0, 0($t1)
+    addiu  $t0, $t0, 1
+    sw     $t0, 0($t1)
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_TxD_IrEn);
+    addiu $a0, $a0, UART_Kontroll
+    ori   $a1, $zero, UART_TxD_IrEn
+    la    $t1, setze_bit
+    jalr  $ra, $t1
+
+    lw    $ra, 0($sp)
+    addiu $sp, $sp, 4
+
+    jr    $ra
+
+# ------------------------------------------------------------------------------
+# void main()
+# ------------------------------------------------------------------------------
+main:
+    .set Zeichen, $s0
+
+    li    $sp, SP_INIT                        # // Stack initialisieren
+
+    la    $t1, Rx_Zeichen                     # Rx_Zeichen = -1;
+    addiu $t0, $zero, -1
+    sw    $t0, 0($t1)
+
+	mfc0  $t0, Status                         # Interrupts im Coprozessor 0 freigeben
+	ori   $t0, $t0, IP3
+	ori   $t0, $t0, IP4
+	mtc0  $t0, Status
+
+    ei    $zero                               # // Interrupts freigeben
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+    addiu $a0, $a0, UART_Kontroll
+    ori   $a1, $zero, UART_RxD_IrEn
+    la    $t1, setze_bit
+    jalr  $ra, $t1
+
+Loop:                               # while(1) {
+    la    $t1, Rx_Zeichen_holen     #     int Zeichen = Rx_Zeichen_holen();
+    jalr  $ra, $t1
+    ori   Zeichen, $v0, 0
+
+    bltz  Zeichen, Kein_Zeichen     #     if(Zeichen >= 0) {
+
+    ori   $a0, $zero, '0'           #         Tx_Fifo_schreiben('0');
+    la    $t1, Tx_Fifo_schreiben
+    jalr  $ra, $t1
+
+    ori   $a0, $zero, 'x'           #         Tx_Fifo_schreiben('x');
+    la    $t1, Tx_Fifo_schreiben
+    jalr  $ra, $t1
+
+    ori   $t1, $zero, 4             #         int Hi=(Zeichen>>4) & 0xf;
+    srlv  $t0, Zeichen, $t1
+    andi  $t0, $t0, 0xf
+    la    $t1, Bin_to_ASCII         #         Tx_Fifo_schreiben(Bin_to_ASCII[Hi]);
+    addu  $t1, $t0, $t1
+    lb    $a0, 0($t1)
+    la    $t1, Tx_Fifo_schreiben
+    jalr  $ra, $t1
+
+    ori   $t0, Zeichen, 0           #         int Lo = Zeichen & 0xf;
+    andi  $t0, $t0, 0xf
+    la    $t1, Bin_to_ASCII         #         Tx_Fifo_schreiben(Bin_to_ASCII[Lo]);
+    addu  $t1, $t0, $t1
+    lb    $a0, 0($t1)
+    la    $t1, Tx_Fifo_schreiben
+    jalr  $ra, $t1
+
+    ori   $a0, $zero, '\n'          #         Tx_Fifo_schreiben('\n');
+    la    $t1, Tx_Fifo_schreiben
+    jalr  $ra, $t1
+
+Kein_Zeichen:                       #     }
+    beq   $zero, $zero, Loop        # }
+

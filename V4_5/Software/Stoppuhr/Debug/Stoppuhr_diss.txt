@@ -1,0 +1,600 @@
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00004000 l    d  .data	00000000 .data
+00004000 l       .data	00000000 ms
+00000000 l       .text	00000000 Reset_Vector
+00000148 l       .text	00000000 main
+00000008 l       .text	00000000 IP0_Vector
+00000010 l       .text	00000000 IP2_Vector
+000000ec l       .text	00000000 Timer_Handler
+00000018 l       .text	00000000 IP3_Vector
+00000020 l       .text	00000000 IP4_Vector
+00000028 l       .text	00000000 bit_von
+00000038 l       .text	00000000 lese_bit
+00000064 l       .text	00000000 setze_bit
+00000080 l       .text	00000000 loesche_bit
+000000b4 l       .text	00000000 schreibe_bitfeld
+00000124 l       .text	00000000 Zeit_anzeigen
+000001c4 l       .text	00000000 WARTEN
+00000244 l       .text	00000000 Uhr_starten
+0000020c l       .text	00000000 Uhr_zuruecksetzen
+00000270 l       .text	00000000 ZAEHLEN
+00000344 l       .text	00000000 Stop_pruefen
+000002ec l       .text	00000000 Einer_pruefen
+00000300 l       .text	00000000 Zehner_pruefen
+00000314 l       .text	00000000 Minuten_pruefen
+00000324 l       .text	00000000 Zeit_aktualisieren
+00000370 l       .text	00000000 Uhr_stoppen
+
+
+
+Disassembly of section .text:
+
+00000000 <Reset_Vector>:
+# Einsprungpunkte
+# ------------------------------------------------------------------------------
+.section .text
+
+Reset_Vector:
+    beq $zero, $zero, main
+   0:	10000051 	b	148 <main>
+   4:	00000000 	nop
+
+00000008 <IP0_Vector>:
+
+IP0_Vector:
+	beq $zero, $zero, IP0_Vector
+   8:	1000ffff 	b	8 <IP0_Vector>
+   c:	00000000 	nop
+
+00000010 <IP2_Vector>:
+
+IP2_Vector:
+    beq $zero, $zero, Timer_Handler
+  10:	10000036 	b	ec <Timer_Handler>
+  14:	00000000 	nop
+
+00000018 <IP3_Vector>:
+
+IP3_Vector:
+	beq $zero, $zero, IP3_Vector
+  18:	1000ffff 	b	18 <IP3_Vector>
+  1c:	00000000 	nop
+
+00000020 <IP4_Vector>:
+
+IP4_Vector:
+	beq $zero, $zero, IP4_Vector
+  20:	1000ffff 	b	20 <IP4_Vector>
+  24:	00000000 	nop
+
+00000028 <bit_von>:
+#   $a1: Bitnummer
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+bit_von:
+    srlv $t0, $a0, $a1
+  28:	00a44006 	srlv	t0,a0,a1
+    andi $v0, $t0, 1
+  2c:	31020001 	andi	v0,t0,0x1
+    jr   $ra                           # // Ruecksprung
+  30:	03e00008 	jr	ra
+  34:	00000000 	nop
+
+00000038 <lese_bit>:
+#   $a1: Bitnummer
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+lese_bit:
+    addiu $sp, $sp, -4                 # Ruecksprungadresse auf dem Stack sichern
+  38:	27bdfffc 	addiu	sp,sp,-4
+    sw    $ra, 0($sp)
+  3c:	afbf0000 	sw	ra,0(sp)
+
+    lw    $a0, 0($a0)
+  40:	8c840000 	lw	a0,0(a0)
+    la    $t0, bit_von
+  44:	3c080000 	lui	t0,0x0
+  48:	25080028 	addiu	t0,t0,40
+    jalr  $ra, $t0
+  4c:	0100f809 	jalr	t0
+  50:	00000000 	nop
+
+    lw    $ra, 0($sp)                  # Ruecksprungadresse vom Stack wiederherstellen
+  54:	8fbf0000 	lw	ra,0(sp)
+    addiu $sp, $sp, 4
+  58:	27bd0004 	addiu	sp,sp,4
+    jr    $ra                          # Ruecksprung
+  5c:	03e00008 	jr	ra
+  60:	00000000 	nop
+
+00000064 <setze_bit>:
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+setze_bit:
+    ori  $t0, $zero, 1
+  64:	34080001 	li	t0,0x1
+    sllv $t1, $t0, $a1
+  68:	00a84804 	sllv	t1,t0,a1
+    lw   $t2, 0($a0)
+  6c:	8c8a0000 	lw	t2,0(a0)
+    or   $t3, $t1, $t2
+  70:	012a5825 	or	t3,t1,t2
+    sw   $t3, 0($a0)
+  74:	ac8b0000 	sw	t3,0(a0)
+    jr   $ra
+  78:	03e00008 	jr	ra
+  7c:	00000000 	nop
+
+00000080 <loesche_bit>:
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+loesche_bit:
+    ori   $t5, $zero, 0xffff
+  80:	340dffff 	li	t5,0xffff
+    ori   $t6, $zero, 16
+  84:	340e0010 	li	t6,0x10
+    sllv  $t7, $t5, $t6
+  88:	01cd7804 	sllv	t7,t5,t6
+    or    $t8, $t7, $t5
+  8c:	01edc025 	or	t8,t7,t5
+
+    ori   $t0, $zero, 1
+  90:	34080001 	li	t0,0x1
+    sllv  $t1, $t0, $a1
+  94:	00a84804 	sllv	t1,t0,a1
+    xor   $t4, $t1, $t8
+  98:	01386026 	xor	t4,t1,t8
+    lw    $t2, 0($a0)
+  9c:	8c8a0000 	lw	t2,0(a0)
+    and   $t3, $t4, $t2
+  a0:	018a5824 	and	t3,t4,t2
+    sw    $t3, 0($a0)
+  a4:	ac8b0000 	sw	t3,0(a0)
+    addiu $k1, $t3, 0
+  a8:	257b0000 	addiu	k1,t3,0
+    jr    $ra                             # Ruecksprung
+  ac:	03e00008 	jr	ra
+  b0:	00000000 	nop
+
+000000b4 <schreibe_bitfeld>:
+#   $a2: Maske
+#   $a3: Shift
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+schreibe_bitfeld:
+    ori   $t7, $zero, 0xffff
+  b4:	340fffff 	li	t7,0xffff
+    ori   $t8, $zero, 16
+  b8:	34180010 	li	t8,0x10
+    sllv  $t9, $t7, $t8
+  bc:	030fc804 	sllv	t9,t7,t8
+    or    $t8, $t9, $t7
+  c0:	032fc025 	or	t8,t9,t7
+
+
+    lw    $t0, 0($a0)
+  c4:	8c880000 	lw	t0,0(a0)
+    sllv  $t1, $a2, $a3
+  c8:	00e64804 	sllv	t1,a2,a3
+    xor   $t2, $t1, $t8
+  cc:	01385026 	xor	t2,t1,t8
+    and   $t3, $t0, $t2
+  d0:	010a5824 	and	t3,t0,t2
+
+    and   $t4, $a1, $a2
+  d4:	00a66024 	and	t4,a1,a2
+    sllv  $t5, $t4, $a3
+  d8:	00ec6804 	sllv	t5,t4,a3
+
+    or    $t6, $t3, $t5
+  dc:	016d7025 	or	t6,t3,t5
+    sw    $t6, 0($a0)
+  e0:	ac8e0000 	sw	t6,0(a0)
+    jr    $ra                           # // Ruecksprung
+  e4:	03e00008 	jr	ra
+  e8:	00000000 	nop
+
+000000ec <Timer_Handler>:
+
+# ------------------------------------------------------------------------------
+# void Timer_Handler()
+# ------------------------------------------------------------------------------
+Timer_Handler:
+    addiu $sp, $sp, -8                  # Register retten
+  ec:	27bdfff8 	addiu	sp,sp,-8
+    sw    $t0, 0($sp)
+  f0:	afa80000 	sw	t0,0(sp)
+    sw    $t1, 4($sp)
+  f4:	afa90004 	sw	t1,4(sp)
+
+    la    $t1, ms                       # Seit letztem Interrupt vergangene ms
+  f8:	3c090000 	lui	t1,0x0
+  fc:	25294000 	addiu	t1,t1,16384
+    lw    $t0, 0($t1)                   # ms = ms + MS_PRO_INTERRUPT
+ 100:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, MS_PRO_INTERRUPT
+ 104:	25080001 	addiu	t0,t0,1
+    sw    $t0, 0($t1)
+ 108:	ad280000 	sw	t0,0(t1)
+
+    li    $t1, Timer_Basis              # Timer-Status abfragen, um Interrupt zu l�schen
+ 10c:	34098000 	li	t1,0x8000
+    lw    $zero, Timer_Status($t1)
+ 110:	8d200010 	lw	zero,16(t1)
+
+    lw    $t0, 0($sp)                   # Register wiederherstellen
+ 114:	8fa80000 	lw	t0,0(sp)
+    lw    $t1, 4($sp)
+ 118:	8fa90004 	lw	t1,4(sp)
+    addiu $sp, $sp, 8
+ 11c:	27bd0008 	addiu	sp,sp,8
+    eret                                # Unterbrechung beendet
+ 120:	42000018 	eret
+
+00000124 <Zeit_anzeigen>:
+#   $a3: Zehntel
+# ------------------------------------------------------------------------------
+Zeit_anzeigen:
+# TODO: Unterprogramm ergaenzen
+
+    li    $t0, SSP_Basis
+ 124:	34088200 	li	t0,0x8200
+    ori   $a0, $a0, 0x10
+ 128:	34840010 	ori	a0,a0,0x10
+    sw    $a0, SSP_Wert3($t0)
+ 12c:	ad04000c 	sw	a0,12(t0)
+    sw    $a1, SSP_Wert2($t0)
+ 130:	ad050008 	sw	a1,8(t0)
+    ori   $a2, $a2, 0x10
+ 134:	34c60010 	ori	a2,a2,0x10
+    sw    $a2, SSP_Wert1($t0)
+ 138:	ad060004 	sw	a2,4(t0)
+    sw    $a3, SSP_Wert0($t0)
+ 13c:	ad070000 	sw	a3,0(t0)
+
+    jr    $ra
+ 140:	03e00008 	jr	ra
+ 144:	00000000 	nop
+
+00000148 <main>:
+.set Zehner,      $s1
+.set Einer,       $s2
+.set Zehntel,     $s3
+
+main:
+    li    $sp, SP_INIT                    # Stackpointer initialisieren
+ 148:	341d8000 	li	sp,0x8000
+
+    ori   Minuten, $zero, 0               # int Minuten = 0;
+ 14c:	34100000 	li	s0,0x0
+    ori   Zehner, $zero, 0                # int Zehner = 0;
+ 150:	34110000 	li	s1,0x0
+    ori   Einer, $zero, 0                 # int Einer = 0;
+ 154:	34120000 	li	s2,0x0
+    ori   Zehntel, $zero, 0               # int Zehntel = 0;
+ 158:	34130000 	li	s3,0x0
+
+    ori   $t0, $zero, 0                   # ms = 0;
+ 15c:	34080000 	li	t0,0x0
+    la    $t1, ms
+ 160:	3c090000 	lui	t1,0x0
+ 164:	25294000 	addiu	t1,t1,16384
+    sw    $t0, 0($t1)
+ 168:	ad280000 	sw	t0,0(t1)
+
+    li    $a0, Timer_Basis                # schreibe_bitfeld(Timer_Basis + Timer_Periode, TAKTZYKLEN_PRO_MS, 0xffffffff, 0);
+ 16c:	34048000 	li	a0,0x8000
+    addiu $a0, $a0, Timer_Periode
+ 170:	24840000 	addiu	a0,a0,0
+    li    $a1, ZAEHLER_PERIODE
+ 174:	3405ea5f 	li	a1,0xea5f
+    li    $a2, 0xffffffff
+ 178:	2406ffff 	li	a2,-1
+    ori   $a3, $zero, 0
+ 17c:	34070000 	li	a3,0x0
+    la    $t1, schreibe_bitfeld
+ 180:	3c090000 	lui	t1,0x0
+ 184:	252900b4 	addiu	t1,t1,180
+    jalr  $ra, $t1
+ 188:	0120f809 	jalr	t1
+ 18c:	00000000 	nop
+
+    ori   $t0, $zero, IM2                 # Interrupt IP2 freigeben
+ 190:	34080400 	li	t0,0x400
+    mfc0  $t1, Status
+ 194:	40096000 	mfc0	t1,c0_status
+    or    $t0, $t0, $t1
+ 198:	01094025 	or	t0,t0,t1
+    mtc0  $t0, Status
+ 19c:	40886000 	mtc0	t0,c0_status
+
+    ei    $zero                           # Globalen Interrupt freigeben
+ 1a0:	41606020 	ei
+
+    ori   $a0, Minuten, 0                 # Zeit_anzeigen(Minuten, Zehner, Einer, Zehntel);
+ 1a4:	36040000 	ori	a0,s0,0x0
+    ori   $a1, Zehner, 0
+ 1a8:	36250000 	ori	a1,s1,0x0
+    ori   $a2, Einer, 0
+ 1ac:	36460000 	ori	a2,s2,0x0
+    ori   $a3, Zehntel, 0
+ 1b0:	36670000 	ori	a3,s3,0x0
+    la    $t1, Zeit_anzeigen
+ 1b4:	3c090000 	lui	t1,0x0
+ 1b8:	25290124 	addiu	t1,t1,292
+    jalr  $ra, $t1
+ 1bc:	0120f809 	jalr	t1
+ 1c0:	00000000 	nop
+
+000001c4 <WARTEN>:
+
+WARTEN:                                   #     while(1) {
+    li    $a0, GPIO_Basis                 #         if(lese_bit(GPIO_Basis + GPIO_Eingabe, START) != 0) {
+ 1c4:	34048100 	li	a0,0x8100
+    addiu $a0, $a0, GPIO_Eingabe
+ 1c8:	24840000 	addiu	a0,a0,0
+    ori   $a1, $zero, START
+ 1cc:	34050000 	li	a1,0x0
+    la    $t1, lese_bit
+ 1d0:	3c090000 	lui	t1,0x0
+ 1d4:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 1d8:	0120f809 	jalr	t1
+ 1dc:	00000000 	nop
+    bne   $v0, $zero, Uhr_starten         #             break;
+ 1e0:	14400018 	bnez	v0,244 <Uhr_starten>
+ 1e4:	00000000 	nop
+                                          #         }
+
+    li    $a0, GPIO_Basis                 #         if(lese_bit(GPIO_Basis + GPIO_Eingabe, RESET) != 0) {
+ 1e8:	34048100 	li	a0,0x8100
+    addiu $a0, $a0, GPIO_Eingabe
+ 1ec:	24840000 	addiu	a0,a0,0
+    ori   $a1, $zero, RESET
+ 1f0:	34050002 	li	a1,0x2
+    la    $t1, lese_bit
+ 1f4:	3c090000 	lui	t1,0x0
+ 1f8:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 1fc:	0120f809 	jalr	t1
+ 200:	00000000 	nop
+    beq   $v0, $zero, WARTEN
+ 204:	1040ffef 	beqz	v0,1c4 <WARTEN>
+ 208:	00000000 	nop
+
+0000020c <Uhr_zuruecksetzen>:
+
+Uhr_zuruecksetzen:
+    ori   Minuten, $zero, 0               #             Minuten = 0;
+ 20c:	34100000 	li	s0,0x0
+    ori   Zehner, $zero, 0                #             Zehner  = 0;
+ 210:	34110000 	li	s1,0x0
+    ori   Einer, $zero, 0                 #             Einer   = 0;
+ 214:	34120000 	li	s2,0x0
+    ori   Zehntel, $zero, 0               #             Zehntel = 0;
+ 218:	34130000 	li	s3,0x0
+
+    ori   $a0, Minuten, 0                 #             Zeit_anzeigen(Minuten, Zehner, Einer, Zehntel);
+ 21c:	36040000 	ori	a0,s0,0x0
+    ori   $a1, Zehner, 0
+ 220:	36250000 	ori	a1,s1,0x0
+    ori   $a2, Einer, 0
+ 224:	36460000 	ori	a2,s2,0x0
+    ori   $a3, Zehntel, 0
+ 228:	36670000 	ori	a3,s3,0x0
+    la    $t1, Zeit_anzeigen
+ 22c:	3c090000 	lui	t1,0x0
+ 230:	25290124 	addiu	t1,t1,292
+    jalr  $ra, $t1
+ 234:	0120f809 	jalr	t1
+ 238:	00000000 	nop
+                                          #         }
+    beq   $zero, $zero, WARTEN            #     }
+ 23c:	1000ffe1 	b	1c4 <WARTEN>
+ 240:	00000000 	nop
+
+00000244 <Uhr_starten>:
+
+Uhr_starten:
+    ori   $t0, $zero, 0                   #     ms = 0
+ 244:	34080000 	li	t0,0x0
+    la    $t1, ms
+ 248:	3c090000 	lui	t1,0x0
+ 24c:	25294000 	addiu	t1,t1,16384
+    sw    $t0, 0($t1)
+ 250:	ad280000 	sw	t0,0(t1)
+
+    li    $a0, Timer_Basis                #     // Timer-Interrupt aktivieren
+ 254:	34048000 	li	a0,0x8000
+    addiu $a0, $a0, Timer_Kontroll        #     setze_bit(Timer_Basis + Timer_Kontroll, Timer_IrEn)
+ 258:	2484000c 	addiu	a0,a0,12
+    ori   $a1, $zero, Timer_IrEn
+ 25c:	34050000 	li	a1,0x0
+    la    $t1, setze_bit
+ 260:	3c090000 	lui	t1,0x0
+ 264:	25290064 	addiu	t1,t1,100
+    jalr  $ra, $t1
+ 268:	0120f809 	jalr	t1
+ 26c:	00000000 	nop
+
+00000270 <ZAEHLEN>:
+
+ZAEHLEN:                                  # while(1) {
+    la    $t1, ms                         #     if(ms >= 100) {
+ 270:	3c090000 	lui	t1,0x0
+ 274:	25294000 	addiu	t1,t1,16384
+    lw    $t0, 0($t1)
+ 278:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, -100
+ 27c:	2508ff9c 	addiu	t0,t0,-100
+    bltz  $t0, Stop_pruefen
+ 280:	05000030 	bltz	t0,344 <Stop_pruefen>
+ 284:	00000000 	nop
+
+    li    $a0, Timer_Basis                #         // Timer-Interrupt sperren
+ 288:	34048000 	li	a0,0x8000
+    addiu $a0, $a0, Timer_Kontroll        #         loesche_bit(Timer_Basis + Timer_Kontroll, Timer_IrEn)
+ 28c:	2484000c 	addiu	a0,a0,12
+    ori   $a1, $zero, Timer_IrEn
+ 290:	34050000 	li	a1,0x0
+    la    $t1, loesche_bit
+ 294:	3c090000 	lui	t1,0x0
+ 298:	25290080 	addiu	t1,t1,128
+    jalr  $ra, $t1
+ 29c:	0120f809 	jalr	t1
+ 2a0:	00000000 	nop
+
+    la    $t1, ms                         #         ms = ms - 100
+ 2a4:	3c090000 	lui	t1,0x0
+ 2a8:	25294000 	addiu	t1,t1,16384
+    lw    $t0, 0($t1)
+ 2ac:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, -100
+ 2b0:	2508ff9c 	addiu	t0,t0,-100
+    sw    $t0, 0($t1)
+ 2b4:	ad280000 	sw	t0,0(t1)
+
+    li    $a0, Timer_Basis                #         // Timer-Interrupt freigeben
+ 2b8:	34048000 	li	a0,0x8000
+    addiu $a0, $a0, Timer_Kontroll        #         setze_bit(Timer_Basis + Timer_Kontroll, Timer_IrEn)
+ 2bc:	2484000c 	addiu	a0,a0,12
+    ori   $a1, $zero, Timer_IrEn
+ 2c0:	34050000 	li	a1,0x0
+    la    $t1, setze_bit
+ 2c4:	3c090000 	lui	t1,0x0
+ 2c8:	25290064 	addiu	t1,t1,100
+    jalr  $ra, $t1
+ 2cc:	0120f809 	jalr	t1
+ 2d0:	00000000 	nop
+
+    addiu Zehntel, Zehntel, 1             #         Zehntel++;
+ 2d4:	26730001 	addiu	s3,s3,1
+
+    addiu $t0, Zehntel, -10               #         if(Zehntel == 10) {
+ 2d8:	2668fff6 	addiu	t0,s3,-10
+    bne   $t0, $zero, Einer_pruefen
+ 2dc:	15000003 	bnez	t0,2ec <Einer_pruefen>
+ 2e0:	00000000 	nop
+    addiu Einer, Einer, 1                 #             Einer++;
+ 2e4:	26520001 	addiu	s2,s2,1
+    ori   Zehntel, $zero, 0               #             Zehntel = 0;
+ 2e8:	34130000 	li	s3,0x0
+
+000002ec <Einer_pruefen>:
+                                          #         }
+Einer_pruefen:
+    addiu $t0, Einer, -10                 #         if(Einer == 10) {
+ 2ec:	2648fff6 	addiu	t0,s2,-10
+    bne   $t0, $zero, Zehner_pruefen
+ 2f0:	15000003 	bnez	t0,300 <Zehner_pruefen>
+ 2f4:	00000000 	nop
+    addiu Zehner, Zehner, 1               #             Zehner++;
+ 2f8:	26310001 	addiu	s1,s1,1
+    ori   Einer, $zero, 0                 #             Einer = 0;
+ 2fc:	34120000 	li	s2,0x0
+
+00000300 <Zehner_pruefen>:
+                                          #         }
+Zehner_pruefen:
+    addiu $t0, Zehner, -6                 #         if(Zehner == 6) {
+ 300:	2628fffa 	addiu	t0,s1,-6
+    bne   $t0, $zero, Minuten_pruefen
+ 304:	15000003 	bnez	t0,314 <Minuten_pruefen>
+ 308:	00000000 	nop
+    addiu Minuten, Minuten, 1             #             Minuten++;
+ 30c:	26100001 	addiu	s0,s0,1
+    ori   Zehner, $zero, 0                #            Zehner = 0;
+ 310:	34110000 	li	s1,0x0
+
+00000314 <Minuten_pruefen>:
+                                          #         }
+Minuten_pruefen:
+    addiu $t0, Minuten, -10               #         if(Minuten == 10) {
+ 314:	2608fff6 	addiu	t0,s0,-10
+    bne   $t0, $zero, Zeit_aktualisieren
+ 318:	15000002 	bnez	t0,324 <Zeit_aktualisieren>
+ 31c:	00000000 	nop
+    ori   Minuten, $zero, 0               #            Minuten = 0;
+ 320:	34100000 	li	s0,0x0
+
+00000324 <Zeit_aktualisieren>:
+                                          #         }
+Zeit_aktualisieren:
+    ori   $a0, Minuten, 0                 #         Zeit_anzeigen(Minuten, Zehner, Einer, Zehntel);
+ 324:	36040000 	ori	a0,s0,0x0
+    ori   $a1, Zehner, 0
+ 328:	36250000 	ori	a1,s1,0x0
+    ori   $a2, Einer, 0
+ 32c:	36460000 	ori	a2,s2,0x0
+    ori   $a3, Zehntel, 0
+ 330:	36670000 	ori	a3,s3,0x0
+    la    $t1, Zeit_anzeigen
+ 334:	3c090000 	lui	t1,0x0
+ 338:	25290124 	addiu	t1,t1,292
+    jalr  $ra, $t1                        #         }
+ 33c:	0120f809 	jalr	t1
+ 340:	00000000 	nop
+
+00000344 <Stop_pruefen>:
+
+Stop_pruefen:
+    li    $a0, GPIO_Basis                 #         if(lese_bit(GPIO_Basis + GPIO_Eingabe, STOP)) {
+ 344:	34048100 	li	a0,0x8100
+    addiu $a0, $a0, GPIO_Eingabe
+ 348:	24840000 	addiu	a0,a0,0
+    ori   $a1, $zero, STOP
+ 34c:	34050001 	li	a1,0x1
+    la    $t1, lese_bit
+ 350:	3c090000 	lui	t1,0x0
+ 354:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 358:	0120f809 	jalr	t1
+ 35c:	00000000 	nop
+    bne   $v0, $zero, Uhr_stoppen         #             break;
+ 360:	14400003 	bnez	v0,370 <Uhr_stoppen>
+ 364:	00000000 	nop
+                                          #         }
+    beq   $zero, $zero, ZAEHLEN           #     }
+ 368:	1000ffc1 	b	270 <ZAEHLEN>
+ 36c:	00000000 	nop
+
+00000370 <Uhr_stoppen>:
+
+Uhr_stoppen:
+    li    $a0, Timer_Basis                #     loesche_bit(Timer_Basis + Timer_Kontroll, Timer_IrEn)
+ 370:	34048000 	li	a0,0x8000
+    addiu $a0, $a0, Timer_Kontroll
+ 374:	2484000c 	addiu	a0,a0,12
+    ori   $a1, $zero, Timer_IrEn
+ 378:	34050000 	li	a1,0x0
+    la    $t1, loesche_bit
+ 37c:	3c090000 	lui	t1,0x0
+ 380:	25290080 	addiu	t1,t1,128
+    jalr  $ra, $t1
+ 384:	0120f809 	jalr	t1
+ 388:	00000000 	nop
+
+    beq   $zero, $zero, WARTEN            # }
+ 38c:	1000ff8d 	b	1c4 <WARTEN>
+ 390:	00000000 	nop
+
+Disassembly of section .data:
+
+00004000 <ms>:
+    4000:	00000000 	nop

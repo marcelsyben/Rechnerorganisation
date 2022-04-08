@@ -1,0 +1,1099 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.07, Jul 22 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Marcel/Desktop/V4/Hardware
+Ebeispielrechner_system
+Z0 w1623255266
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1162
+Z3 dc:/users/marcel/desktop/v4_5/hardware
+Z4 8Beispielrechner_System.vhd
+Z5 FBeispielrechner_System.vhd
+l0
+L4 1
+VQeEh=W^WLH1VgP;_IMWi@1
+!s100 4R0C4_lM4DIeb8nnzV_X>1
+Z6 OV;C;2020.3;71
+32
+Z7 !s110 1624309574
+!i10b 1
+Z8 !s108 1624309574.000000
+Z9 !s90 -reportprogress|300|Beispielrechner_System.vhd|
+Z10 !s107 Beispielrechner_System.vhd|
+!i113 1
+Z11 tExplicit 1 CvgOpt 0
+Aarch
+Z12 DEx4 work 4 uart 0 22 YT=ZSnJ@:6Xb6;VfRl=kG3
+Z13 DEx4 work 3 ssp 0 22 497PYE9NOWX7:5A^o^G<e1
+Z14 DEx4 work 4 gpio 0 22 m=9Q8:mXbEKaNfo<`B9nh1
+Z15 DEx4 work 5 timer 0 22 oOfYkmG]k:840H9^imdl93
+Z16 DEx4 work 6 memory 0 22 @VcQ@e]6FK2i^D9CkY2nD0
+Z17 DEx4 work 14 bsr2_processor 0 22 nlMeAmU[DLV2Mo@>UEbzF1
+Z18 DEx4 work 8 clocking 0 22 MW6b2X;A=92E]hBaWNLOV1
+Z19 DEx4 work 22 beispielrechner_system 0 22 QeEh=W^WLH1VgP;_IMWi@1
+R2
+R1
+Z20 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+!i122 1162
+l81
+L35 300
+V41m0FiIcaA900oBUnNMAc2
+!s100 48V[mOf=L]A<lcz4jR_Dh1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Ebeispielrechner_system_v4_testbench
+Z21 w1620805363
+!i122 1163
+R3
+Z22 8Beispielrechner_System_V4_testbench.vhd
+Z23 FBeispielrechner_System_V4_testbench.vhd
+l0
+L1 1
+VD[cboX25VZ7VUKGVh5]gV2
+!s100 j[:9HkD[hHkaQYP7CDZCj2
+R6
+32
+R7
+!i10b 1
+R8
+Z24 !s90 -reportprogress|300|Beispielrechner_System_V4_testbench.vhd|
+Z25 !s107 Beispielrechner_System_V4_testbench.vhd|
+!i113 1
+R11
+Atest
+DEx4 work 22 beispielrechner_system 0 22 `4T8FoeY>G7jQoP<NP3e40
+DEx4 work 35 beispielrechner_system_v4_testbench 0 22 D[cboX25VZ7VUKGVh5]gV2
+R20
+R1
+R2
+!i122 562
+l29
+L8 139
+VFH9RB>KmilV24cRan]Q6[0
+!s100 UjIhfel2G^5NUkEk[cQVk3
+R6
+32
+!s110 1622646614
+!i10b 1
+!s108 1622646614.000000
+R24
+R25
+!i113 1
+R11
+dc:/users/marcel/desktop/v4/hardware
+Ebeispielrechner_system_v5_a1_testbench
+Z26 w1612980127
+!i122 1121
+R3
+Z27 8Beispielrechner_System_V5_A1_testbench.vhd
+Z28 FBeispielrechner_System_V5_A1_testbench.vhd
+l0
+L1 1
+V9bkjge<EF=RB5@X??3Imj2
+!s100 g^JO?LY1lELR`ZO>;H?FU2
+R6
+32
+Z29 !s110 1623940121
+!i10b 1
+Z30 !s108 1623940121.000000
+Z31 !s90 -reportprogress|300|Beispielrechner_System_V5_A1_testbench.vhd|
+Z32 !s107 Beispielrechner_System_V5_A1_testbench.vhd|
+!i113 1
+R11
+Atest
+R19
+DEx4 work 38 beispielrechner_system_v5_a1_testbench 0 22 9bkjge<EF=RB5@X??3Imj2
+Z33 DPx4 work 11 test_serial 0 22 9M[>0Hz]iS]Ac^aD:c=Y[0
+R20
+R1
+R2
+!i122 1121
+l28
+L9 164
+VQnKCbCYA7R2[EL@hlR6O93
+!s100 ORLEheT5P@4aTo6hz@:>80
+R6
+32
+R29
+!i10b 1
+R30
+R31
+R32
+!i113 1
+R11
+Ebeispielrechner_system_v5_a2_testbench
+R26
+!i122 1144
+R3
+Z34 8Beispielrechner_System_V5_A2_testbench.vhd
+Z35 FBeispielrechner_System_V5_A2_testbench.vhd
+l0
+L1 1
+VkK_8KHFTF?Y@>Ja`4gHo62
+!s100 WhU_PJd0M4HeFckBh28Ea2
+R6
+32
+Z36 !s110 1623940151
+!i10b 1
+Z37 !s108 1623940151.000000
+Z38 !s90 -reportprogress|300|Beispielrechner_System_V5_A2_testbench.vhd|
+Z39 !s107 Beispielrechner_System_V5_A2_testbench.vhd|
+!i113 1
+R11
+Atest
+R19
+DEx4 work 38 beispielrechner_system_v5_a2_testbench 0 22 kK_8KHFTF?Y@>Ja`4gHo62
+R33
+R20
+R1
+R2
+!i122 1144
+l36
+L9 177
+VU0cPd7iYP@9j<B:3^mg1X0
+!s100 JbKBdJ2=VnSUHC`3_R5322
+R6
+32
+R36
+!i10b 1
+R37
+R38
+R39
+!i113 1
+R11
+Ebsr2_processor
+R26
+R20
+R1
+R2
+!i122 1154
+R3
+Z40 8Prozessor/bsr2_processor.vhd
+Z41 FProzessor/bsr2_processor.vhd
+l0
+L21 1
+VnlMeAmU[DLV2Mo@>UEbzF1
+!s100 J1^NVcD>O2EX3CBN@R<f70
+R6
+32
+R7
+!i10b 1
+R8
+Z42 !s90 -reportprogress|300|Prozessor/bsr2_processor.vhd|
+Z43 !s107 Prozessor/bsr2_processor.vhd|
+!i113 1
+R11
+Abehavioral
+Z44 DEx4 work 19 bsr2_processor_core 0 22 h^FdFAV>T9gj_cD`oODY;0
+Z45 DEx4 work 10 wb_arbiter 0 22 DZz@JY?WbKdaF9F4>mW1S3
+Z46 DEx4 work 25 serial_wishbone_interface 0 22 b:VLmV6zVEMdlBcMh=aLD3
+R20
+R1
+R2
+R17
+!i122 1154
+l102
+L63 261
+VTMgBI[0eB7;HCC0XdRF7[3
+!s100 fzDfG3T9o=:c>gl5>`J]H3
+R6
+32
+R7
+!i10b 1
+R8
+R42
+R43
+!i113 1
+R11
+Ebsr2_processor_core
+R26
+R20
+R1
+R2
+!i122 1153
+R3
+Z47 8Prozessor/bsr2_processor_core.vhd
+Z48 FProzessor/bsr2_processor_core.vhd
+l0
+Z49 L19 1
+Vh^FdFAV>T9gj_cD`oODY;0
+!s100 =[U?C^?7`Wjom<Z9R<V2_2
+R6
+32
+R7
+!i10b 1
+Z50 !s108 1624309573.000000
+Z51 !s90 -reportprogress|300|Prozessor/bsr2_processor_core.vhd|
+Z52 !s107 Prozessor/bsr2_processor_core.vhd|
+!i113 1
+R11
+Abehavioral
+Z53 DEx4 work 3 div 0 22 0ib@Wg_W@N[>5Wnia5IgE0
+Z54 DEx4 work 4 mult 0 22 m:6EhK8Lz2]B><FjDPFhg3
+R20
+R44
+R1
+R2
+Z55 DPx4 work 18 txt_util_pack_v1_2 0 22 =6kHZe]DZ5X4R?R[3A;=Q1
+!i122 1153
+l199
+L70 2253
+Va>d0Y^g:i9:W>9DlJ;gb:1
+!s100 4^8;WR6I6Rfnl2X`7iIF^2
+R6
+32
+R7
+!i10b 1
+R50
+R51
+R52
+!i113 1
+R11
+Eclocking
+R26
+R1
+R2
+!i122 1155
+R3
+Z56 8Peripherie/Clocking_sim.vhd
+Z57 FPeripherie/Clocking_sim.vhd
+l0
+L4 1
+VMW6b2X;A=92E]hBaWNLOV1
+!s100 T:PZd10A^kWhb=z;JIhUo0
+R6
+32
+R7
+!i10b 1
+R8
+Z58 !s90 -reportprogress|300|Peripherie/Clocking_sim.vhd|
+Z59 !s107 Peripherie/Clocking_sim.vhd|
+!i113 1
+R11
+Asim
+R1
+R2
+R18
+!i122 1155
+l19
+L17 14
+VYOEeNiN8:]M1H2NJMm1jD2
+!s100 3oo_9=MEBId1@4zAQ_YQb0
+R6
+32
+R7
+!i10b 1
+R8
+R58
+R59
+!i113 1
+R11
+Edf_serial_in_v1_0
+R26
+R1
+R2
+!i122 1145
+R3
+Z60 8Prozessor/df_serial_in_v1_0.vhd
+Z61 FProzessor/df_serial_in_v1_0.vhd
+l0
+L7 1
+Vo^`IblLLH9KS[^KCS<jJB2
+!s100 >a8:oXLI8cJ21E0oWUfzQ3
+R6
+32
+Z62 !s110 1624309573
+!i10b 1
+R50
+Z63 !s90 -reportprogress|300|Prozessor/df_serial_in_v1_0.vhd|
+Z64 !s107 Prozessor/df_serial_in_v1_0.vhd|
+!i113 1
+R11
+Aarch
+Z65 DEx4 work 17 df_serial_in_v1_0 0 22 o^`IblLLH9KS[^KCS<jJB2
+R2
+R1
+R20
+!i122 1145
+l39
+L29 89
+Vh[Zm34?90jZS0IYFa5:WK1
+!s100 M[H0UNjQ@e@0U:DJTLRc[1
+R6
+32
+R62
+!i10b 1
+R50
+R63
+R64
+!i113 1
+R11
+Edf_serial_out_v1_0
+R26
+R1
+R2
+!i122 1146
+R3
+Z66 8Prozessor/df_serial_out_v1_0.vhd
+Z67 FProzessor/df_serial_out_v1_0.vhd
+l0
+L7 1
+V@?03<FZYhPldV7=zbgfCF2
+!s100 hIaUz9K1CXbjnFE`14YZV0
+R6
+32
+R62
+!i10b 1
+R50
+Z68 !s90 -reportprogress|300|Prozessor/df_serial_out_v1_0.vhd|
+Z69 !s107 Prozessor/df_serial_out_v1_0.vhd|
+!i113 1
+R11
+Aarch
+Z70 DEx4 work 18 df_serial_out_v1_0 0 22 @?03<FZYhPldV7=zbgfCF2
+R2
+R1
+R20
+!i122 1146
+l34
+L30 116
+V>R2[zbL:FoQ:<n995;m]R1
+!s100 >TIekJiQQ953FL1Hz3l^B1
+R6
+32
+R62
+!i10b 1
+R50
+R68
+R69
+!i113 1
+R11
+Edf_wishbone_interface
+R26
+R1
+R2
+!i122 1147
+R3
+Z71 8Prozessor/df_wishbone_interface.vhd
+Z72 FProzessor/df_wishbone_interface.vhd
+l0
+L18 1
+V:l]YRAJQQPJ9528Xb9`NB0
+!s100 4L<deH4RQQddZ4[7eF3n30
+R6
+32
+R62
+!i10b 1
+R50
+Z73 !s90 -reportprogress|300|Prozessor/df_wishbone_interface.vhd|
+Z74 !s107 Prozessor/df_wishbone_interface.vhd|
+!i113 1
+R11
+Aarch
+Z75 DEx4 work 21 df_wishbone_interface 0 22 :l]YRAJQQPJ9528Xb9`NB0
+R2
+R1
+R20
+!i122 1147
+l64
+L48 759
+V`bUlATZ88QcUJkHGNNOaX3
+!s100 Czo09h@^V>a=]3QCTOfjM0
+R6
+32
+R62
+!i10b 1
+R50
+R73
+R74
+!i113 1
+R11
+Ediv
+R26
+R1
+R2
+!i122 1149
+R3
+Z76 8Prozessor/div.vhd
+Z77 FProzessor/div.vhd
+l0
+L4 1
+V0ib@Wg_W@N[>5Wnia5IgE0
+!s100 SEcZS;4n59;Ri[j;7;dQ>0
+R6
+32
+R62
+!i10b 1
+R50
+Z78 !s90 -reportprogress|300|Prozessor/div.vhd|
+Z79 !s107 Prozessor/div.vhd|
+!i113 1
+R11
+Aarch
+R53
+R2
+R1
+R20
+!i122 1149
+l40
+L23 182
+VAE0LFWg6nSSkB?gWd?9<[0
+!s100 hhZiSV1>=II4@5S`nkf830
+R6
+32
+R62
+!i10b 1
+R50
+R78
+R79
+!i113 1
+R11
+Egpio
+Z80 w1584087902
+R1
+R2
+!i122 1159
+R3
+Z81 8Peripherie/GPIO.vhd
+Z82 FPeripherie/GPIO.vhd
+l0
+L8 1
+Vm=9Q8:mXbEKaNfo<`B9nh1
+!s100 Ui<aO_5;6MP16IE3zLe[93
+R6
+32
+R7
+!i10b 1
+R8
+Z83 !s90 -reportprogress|300|Peripherie/GPIO.vhd|
+Z84 !s107 Peripherie/GPIO.vhd|
+!i113 1
+R11
+Abehavioral
+R1
+R2
+R14
+!i122 1159
+l41
+L28 87
+V?l`^2FFCCRl5FT?mV`RF@0
+!s100 J5BN4AW_Fzid4hJZ1f02o3
+R6
+32
+R7
+!i10b 1
+R8
+R83
+R84
+!i113 1
+R11
+Pintel_hex_pack
+Z85 DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
+R20
+R2
+R1
+!i122 1156
+Z86 w1606238031
+R3
+Z87 8Speicher/intel_hex_pack.vhd
+Z88 FSpeicher/intel_hex_pack.vhd
+l0
+L7 1
+V>6dj4J^VUD?k`FN6MTk7R3
+!s100 Z3m8165Q=a?>86GX79Xoc1
+R6
+32
+b1
+R7
+!i10b 1
+R8
+Z89 !s90 -reportprogress|300|Speicher/intel_hex_pack.vhd|
+Z90 !s107 Speicher/intel_hex_pack.vhd|
+!i113 1
+R11
+Bbody
+Z91 DPx4 work 14 intel_hex_pack 0 22 >6dj4J^VUD?k`FN6MTk7R3
+R85
+R20
+R2
+R1
+!i122 1156
+l0
+R49
+VK0=JYKC^je]bKz2WePaO73
+!s100 G6nS9?k68oJ9;RXD1kVW@2
+R6
+32
+R7
+!i10b 1
+R8
+R89
+R90
+!i113 1
+R11
+Ememory
+R86
+R1
+R2
+!i122 1157
+R3
+Z92 8Speicher/Memory.vhd
+Z93 FSpeicher/Memory.vhd
+l0
+L3 1
+V@VcQ@e]6FK2i^D9CkY2nD0
+!s100 @A9Jji`2e>2S7hhCGHAf:3
+R6
+32
+R7
+!i10b 1
+R8
+Z94 !s90 -reportprogress|300|Speicher/Memory.vhd|
+Z95 !s107 Speicher/Memory.vhd|
+!i113 1
+R11
+Artl
+R16
+R85
+R91
+R2
+R1
+R20
+!i122 1157
+l32
+L26 45
+Vmnzb9hK?gRz_;3OlOPEQ70
+!s100 N]z8gnF[fWF5SeG2eWm?I0
+R6
+32
+R7
+!i10b 1
+R8
+R94
+R95
+!i113 1
+R11
+Emult
+R26
+R1
+R2
+!i122 1150
+R3
+Z96 8Prozessor/mult.vhd
+Z97 FProzessor/mult.vhd
+l0
+L4 1
+Vm:6EhK8Lz2]B><FjDPFhg3
+!s100 4V>Tn3oEHn@fdL:[zmWi83
+R6
+32
+R62
+!i10b 1
+R50
+Z98 !s90 -reportprogress|300|Prozessor/mult.vhd|
+Z99 !s107 Prozessor/mult.vhd|
+!i113 1
+R11
+Aarch
+R54
+R2
+R1
+R20
+!i122 1150
+l42
+L23 83
+VU]X]c6Q>iL55inf[]Akgn2
+!s100 R=X=YHFkaMaT@ePdf<IFP1
+R6
+32
+R62
+!i10b 1
+R50
+R98
+R99
+!i113 1
+R11
+Eserial_wishbone_interface
+R26
+R1
+R2
+!i122 1148
+R3
+Z100 8Prozessor/serial_wishbone_interface.vhd
+Z101 FProzessor/serial_wishbone_interface.vhd
+l0
+L38 1
+Vb:VLmV6zVEMdlBcMh=aLD3
+!s100 8:RBeXL=P0=WnQ^>]N_bj0
+R6
+32
+R62
+!i10b 1
+R50
+Z102 !s90 -reportprogress|300|Prozessor/serial_wishbone_interface.vhd|
+Z103 !s107 Prozessor/serial_wishbone_interface.vhd|
+!i113 1
+R11
+Aarch
+R70
+R75
+R65
+R46
+R2
+R1
+R20
+!i122 1148
+l109
+L65 129
+VXUdJVQL8WaCDF[1@Sh3oO3
+!s100 jKBcTB]2gb;H8HnZ1>IjV2
+R6
+32
+R62
+!i10b 1
+R50
+R102
+R103
+!i113 1
+R11
+Pserial_wishbone_interface_pack
+R1
+R2
+!i122 1148
+R26
+R3
+R100
+R101
+l0
+L9 1
+V<JER_:;];j5@>dB_HIe]91
+!s100 <ZC6R5o:4PNMo2U5K8f=Z3
+R6
+32
+R62
+!i10b 1
+R50
+R102
+R103
+!i113 1
+R11
+Esiebensegment_anzeige
+R26
+R1
+R2
+!i122 1160
+R3
+Z104 8Peripherie/Siebensegment_Anzeige.vhd
+Z105 FPeripherie/Siebensegment_Anzeige.vhd
+l0
+L4 1
+VY]n4EVo9`=5PoY82>ZH<F3
+!s100 ASk3z731hl6R1K]nQIZZC0
+R6
+32
+R7
+!i10b 1
+R8
+Z106 !s90 -reportprogress|300|Peripherie/Siebensegment_Anzeige.vhd|
+Z107 !s107 Peripherie/Siebensegment_Anzeige.vhd|
+!i113 1
+R11
+Artl
+R1
+R2
+Z108 DEx4 work 21 siebensegment_anzeige 0 22 Y]n4EVo9`=5PoY82>ZH<F3
+!i122 1160
+l56
+L25 72
+V8_7dS5mX35`o05LDXRN?o3
+!s100 QnfM?U_6b`kiFS]__FC<F3
+R6
+32
+R7
+!i10b 1
+R8
+R106
+R107
+!i113 1
+R11
+Essp
+Z109 w1622564949
+R20
+R1
+R2
+!i122 1161
+R3
+Z110 8Peripherie/SSP.vhd
+Z111 FPeripherie/SSP.vhd
+l0
+L5 1
+V497PYE9NOWX7:5A^o^G<e1
+!s100 ?M7j@_a^?F_]GQ3^zDLXE3
+R6
+32
+R7
+!i10b 1
+R8
+Z112 !s90 -reportprogress|300|Peripherie/SSP.vhd|
+Z113 !s107 Peripherie/SSP.vhd|
+!i113 1
+R11
+Artl
+R108
+R20
+R1
+R2
+R13
+!i122 1161
+l47
+L26 122
+VkX<>U1EaDMDO7OV=T0hci3
+!s100 ]O@^G;mzbhL_ioR]jBF=a3
+R6
+32
+R7
+!i10b 1
+R8
+R112
+R113
+!i113 1
+R11
+Etest
+R80
+R33
+R1
+R2
+!i122 1143
+R3
+Z114 8test_serial.vhd
+Z115 Ftest_serial.vhd
+l0
+Z116 L131 1
+V=DX066^OflXiDX[U3?GFd0
+!s100 6:DQdf:LSDN_`6090:fTD3
+R6
+32
+R36
+!i10b 1
+R37
+Z117 !s90 -reportprogress|300|test_serial.vhd|
+Z118 !s107 test_serial.vhd|
+!i113 1
+R11
+Atest
+R33
+R1
+R2
+DEx4 work 4 test 0 22 =DX066^OflXiDX[U3?GFd0
+!i122 1143
+l139
+L133 55
+VFN54W<KS`KT<5`:0^b@SX3
+!s100 :De0M^ILgU4V5W2>VS0U=3
+R6
+32
+R36
+!i10b 1
+R37
+R117
+R118
+!i113 1
+R11
+Ptest_serial
+R1
+R2
+!i122 1143
+R80
+R3
+R114
+R115
+l0
+L9 1
+V9M[>0Hz]iS]Ac^aD:c=Y[0
+!s100 RA8M9I@H2GA`giD0hD:[W1
+R6
+32
+b1
+R36
+!i10b 1
+R37
+R117
+R118
+!i113 1
+R11
+Bbody
+R33
+R1
+R2
+!i122 1143
+l0
+L41 1
+VW@8X`Qb5;G@P3O^_=EK:Z3
+!s100 hbb_UleWFV5XISDVHNXHT2
+R6
+32
+R36
+!i10b 1
+R37
+R117
+R118
+!i113 1
+R11
+Etimer
+R80
+R1
+R2
+!i122 1158
+R3
+Z119 8Peripherie/Timer.vhd
+Z120 FPeripherie/Timer.vhd
+l0
+L9 1
+VoOfYkmG]k:840H9^imdl93
+!s100 eR^W:[iHEZ7dDCJAQH?Ib3
+R6
+32
+R7
+!i10b 1
+R8
+Z121 !s90 -reportprogress|300|Peripherie/Timer.vhd|
+Z122 !s107 Peripherie/Timer.vhd|
+!i113 1
+R11
+Abehavioral
+R15
+R2
+R1
+R20
+!i122 1158
+l49
+L30 134
+V[U3Qz[;>8hLBBFe_b4fZ>2
+!s100 5dYV`h=O1[]a>d[ngnz@j0
+R6
+32
+R7
+!i10b 1
+R8
+R121
+R122
+!i113 1
+R11
+Ptxt_util_pack_v1_2
+R1
+R2
+!i122 1152
+R26
+R3
+Z123 8Prozessor/txt_util_pack_v1_2.vhd
+Z124 FProzessor/txt_util_pack_v1_2.vhd
+l0
+L39 1
+V=6kHZe]DZ5X4R?R[3A;=Q1
+!s100 9D]LQ`:ZWHGXFS7H=lf:P2
+R6
+32
+b1
+R62
+!i10b 1
+R50
+Z125 !s90 -reportprogress|300|Prozessor/txt_util_pack_v1_2.vhd|
+Z126 !s107 Prozessor/txt_util_pack_v1_2.vhd|
+!i113 1
+R11
+Bbody
+R55
+R1
+R2
+!i122 1152
+l0
+R116
+V9B1a^h<9QVPY9]<?QD[Y31
+!s100 aE;nHP7>95n9A]]JVo^O42
+R6
+32
+R62
+!i10b 1
+R50
+R125
+R126
+!i113 1
+R11
+Euart
+R80
+R1
+R2
+!i122 1141
+R3
+Z127 8Peripherie/UART.vhd
+Z128 FPeripherie/UART.vhd
+l0
+L9 1
+VYT=ZSnJ@:6Xb6;VfRl=kG3
+!s100 _Q1A6TQOZ;G>TJmObklbR1
+R6
+32
+R36
+!i10b 1
+R37
+Z129 !s90 -reportprogress|300|Peripherie/UART.vhd|
+Z130 !s107 Peripherie/UART.vhd|
+!i113 1
+R11
+Abehavioral
+Z131 DEx4 work 11 uart_sender 0 22 zo6of?JAEPFN@V<Tkijh82
+Z132 DEx4 work 15 uart_empfaenger 0 22 3RCVmY:dRlJDTPRURlQPF3
+R12
+R2
+R1
+R20
+!i122 1141
+l74
+L35 150
+V9XZbcnA=YlAROgBHI@<<B0
+!s100 VGam_>cHVoO5AD3`e:7_<0
+R6
+32
+R36
+!i10b 1
+R37
+R129
+R130
+!i113 1
+R11
+Euart_empfaenger
+R80
+R1
+R2
+!i122 1140
+R3
+Z133 8Peripherie/UART_Empfaenger.vhd
+Z134 FPeripherie/UART_Empfaenger.vhd
+l0
+L9 1
+V3RCVmY:dRlJDTPRURlQPF3
+!s100 d^J4d;MM2cG6_gGR:EaZo2
+R6
+32
+R36
+!i10b 1
+Z135 !s108 1623940150.000000
+Z136 !s90 -reportprogress|300|Peripherie/UART_Empfaenger.vhd|
+Z137 !s107 Peripherie/UART_Empfaenger.vhd|
+!i113 1
+R11
+Aarch
+R132
+R2
+R1
+R20
+!i122 1140
+l33
+L27 129
+VA3hTBBIaNGVWLGF:;nOO41
+!s100 7GE4BNm=nECE;Dbl8Q[730
+R6
+32
+R36
+!i10b 1
+R135
+R136
+R137
+!i113 1
+R11
+Euart_sender
+Z138 w1619527248
+R1
+R2
+!i122 1139
+R3
+Z139 8Peripherie/UART_Sender.vhd
+Z140 FPeripherie/UART_Sender.vhd
+l0
+L6 1
+Vzo6of?JAEPFN@V<Tkijh82
+!s100 ZBBWK<4_7kRKT`4=DT^z63
+R6
+32
+Z141 !s110 1623940150
+!i10b 1
+R135
+Z142 !s90 -reportprogress|300|Peripherie/UART_Sender.vhd|
+Z143 !s107 Peripherie/UART_Sender.vhd|
+!i113 1
+R11
+Aarch
+R131
+R2
+R1
+R20
+!i122 1139
+l31
+L26 141
+VdzhHOjj@fY2hO3A]Kone52
+!s100 3zH5m=^gn[kbDGECod;413
+R6
+32
+R141
+!i10b 1
+R135
+R142
+R143
+!i113 1
+R11
+Ewb_arbiter
+R26
+R20
+R1
+R2
+!i122 1151
+R3
+Z144 8Prozessor/wb_arbiter.vhd
+Z145 FProzessor/wb_arbiter.vhd
+l0
+L5 1
+VDZz@JY?WbKdaF9F4>mW1S3
+!s100 WaG]WnYmEO>^26<V;EbcJ3
+R6
+32
+R62
+!i10b 1
+R50
+Z146 !s90 -reportprogress|300|Prozessor/wb_arbiter.vhd|
+Z147 !s107 Prozessor/wb_arbiter.vhd|
+!i113 1
+R11
+Artl
+R20
+R1
+R2
+R45
+!i122 1151
+l49
+L43 86
+VOmbIS6`8fKoFh02NQGM^[3
+!s100 8UnaKN>0QE7MB0=92a7<?3
+R6
+32
+R62
+!i10b 1
+R50
+R146
+R147
+!i113 1
+R11

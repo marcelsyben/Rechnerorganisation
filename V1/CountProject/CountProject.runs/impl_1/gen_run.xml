@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1618935705">
+  <File Type="BITSTR-BMM" Name="CountSystem_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="CountSystem_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="CountSystem_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="CountSystem_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="CountSystem.tcl"/>
+  <File Type="OPT-TIMING" Name="CountSystem_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="CountSystem_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="CountSystem_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="CountSystem_reports.tcl"/>
+  <File Type="OPT-DRC" Name="CountSystem_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="CountSystem.hwdef"/>
+  <File Type="PWROPT-DCP" Name="CountSystem_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="CountSystem_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="CountSystem_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="CountSystem_placed.dcp"/>
+  <File Type="PLACE-IO" Name="CountSystem_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="CountSystem_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="CountSystem_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="CountSystem_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="CountSystem_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="CountSystem_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="CountSystem_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="CountSystem_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="CountSystem_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="CountSystem.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="CountSystem_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="CountSystem_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="CountSystem_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="CountSystem.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="CountSystem_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="CountSystem_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="CountSystem_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="CountSystem_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="CountSystem_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="CountSystem_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="CountSystem_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="CountSystem.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="CountSystem_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="CountSystem_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="CountSystem_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="CountSystem_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="CountSystem_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="CountSystem_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="CountSystem_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="CountSystem_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="CountSystem_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="CountSystem_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="CountSystem_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="CountSystem_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="CountSystem_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="CountSystem_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="CountSystem_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="CountSystem_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="CountSystem_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="CountSystem_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="CountSystem_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="CountSystem_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="CountSystem_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="CountSystem.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="CountSystem_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="CountSystem.rbt"/>
+  <File Type="BITSTR-NKY" Name="CountSystem.nky"/>
+  <File Type="PDI-FILE" Name="CountSystem.pdi"/>
+  <File Type="RCFI_FILE" Name="CountSystem.rcfi"/>
+  <File Type="CFI_FILE" Name="CountSystem.cfi"/>
+  <File Type="RNPI_FILE" Name="CountSystem.rnpi"/>
+  <File Type="NPI_FILE" Name="CountSystem.npi"/>
+  <File Type="RBD_FILE" Name="CountSystem.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="CountSystem.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="CountSystem.sysdef"/>
+  <File Type="BG-BGN" Name="CountSystem.bgn"/>
+  <File Type="BG-DRC" Name="CountSystem.drc"/>
+  <File Type="RDI-RDI" Name="CountSystem.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../ModuloCounter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../UpDownCounter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../Siebensegment_Anzeige.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../CountSystem.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="CountSystem"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../CountSystem.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design" EnableStepBool="1"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

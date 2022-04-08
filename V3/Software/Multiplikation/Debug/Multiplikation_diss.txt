@@ -1,0 +1,586 @@
+
+Multiplikation.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000032c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00004000 l    d  .data	00000000 .data
+00004000 l       .data	00000000 Ergebnis
+00000000 l       .text	00000000 Reset_Vector
+00000174 l       .text	00000000 main
+00000008 l       .text	00000000 bit_von
+00000018 l       .text	00000000 lese_bit
+00000044 l       .text	00000000 setze_bit
+00000060 l       .text	00000000 lese_bitfeld
+00000078 l       .text	00000000 loesche_bit
+000000ac l       .text	00000000 schreibe_bitfeld
+000000e4 l       .text	00000000 multipliziere
+000000f8 l       .text	00000000 naechsteStelle
+0000015c l       .text	00000000 end
+00000148 l       .text	00000000 addierer
+00000178 l       .text	00000000 Hauptschleife
+000001d4 l       .text	00000000 Copy_init
+000001d8 l       .text	00000000 Copy_test
+0000024c l       .text	00000000 Copy_end
+00000224 l       .text	00000000 nicht_gesetzt
+00000240 l       .text	00000000 Copy_iter
+00000250 l       .text	00000000 Highbyte_init
+00000254 l       .text	00000000 Highbyte_test
+00000298 l       .text	00000000 Highbyte_end
+0000028c l       .text	00000000 Highbyte_iter
+0000029c l       .text	00000000 Lowbyte_init
+000002a0 l       .text	00000000 Lowbyte_test
+000002e4 l       .text	00000000 Lowbyte_end
+000002d8 l       .text	00000000 Lowbyte_iter
+
+
+
+Disassembly of section .text:
+
+00000000 <Reset_Vector>:
+# Einsprungpunkte
+# ------------------------------------------------------------------------------
+.section .text
+
+Reset_Vector:
+    beq $zero, $zero, main
+   0:	1000005c 	b	174 <main>
+   4:	00000000 	nop
+
+00000008 <bit_von>:
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+# return (Wert >> Bitnummer) & 1;
+# ------------------------------------------------------------------------------
+bit_von:
+    srlv $t0, $a0, $a1
+   8:	00a44006 	srlv	t0,a0,a1
+    andi $v0, $t0, 1
+   c:	31020001 	andi	v0,t0,0x1
+    jr   $ra                           # Ruecksprung
+  10:	03e00008 	jr	ra
+  14:	00000000 	nop
+
+00000018 <lese_bit>:
+# ------------------------------------------------------------------------------
+# int * Adresse = (int*) Adresswert;
+# return bit_von(*Adresse, Bitnummer);
+# ------------------------------------------------------------------------------
+lese_bit:
+    addiu $sp, $sp, -4                 # Ruecksprungadresse auf dem Stack sichern
+  18:	27bdfffc 	addiu	sp,sp,-4
+    sw    $ra, 0($sp)
+  1c:	afbf0000 	sw	ra,0(sp)
+
+    lw    $a0, 0($a0)
+  20:	8c840000 	lw	a0,0(a0)
+    la    $t0, bit_von
+  24:	3c080000 	lui	t0,0x0
+  28:	25080008 	addiu	t0,t0,8
+    jalr  $ra, $t0
+  2c:	0100f809 	jalr	t0
+  30:	00000000 	nop
+
+    lw    $ra, 0($sp)                  # Ruecksprungadresse vom Stack wiederherstellen
+  34:	8fbf0000 	lw	ra,0(sp)
+    addiu $sp, $sp, 4
+  38:	27bd0004 	addiu	sp,sp,4
+
+    jr    $ra                          # Ruecksprung
+  3c:	03e00008 	jr	ra
+  40:	00000000 	nop
+
+00000044 <setze_bit>:
+# ------------------------------------------------------------------------------
+# int * Adresse = (int*) Adresswert;
+# *Adresse = *Adresse | (1 << Bitnummer);
+# ------------------------------------------------------------------------------
+setze_bit:
+    ori  $t0, $zero, 1
+  44:	34080001 	li	t0,0x1
+    sllv $t1, $t0, $a1
+  48:	00a84804 	sllv	t1,t0,a1
+    lw   $t2, 0($a0)
+  4c:	8c8a0000 	lw	t2,0(a0)
+    or   $t3, $t1, $t2
+  50:	012a5825 	or	t3,t1,t2
+    sw   $t3, 0($a0)
+  54:	ac8b0000 	sw	t3,0(a0)
+
+    jr   $ra                           # Ruecksprung
+  58:	03e00008 	jr	ra
+  5c:	00000000 	nop
+
+00000060 <lese_bitfeld>:
+# int * Adresse = (int*) Adresswert;
+# return (*Adresse >> Shift) & Maske;
+# ------------------------------------------------------------------------------
+lese_bitfeld:
+# TODO: Unterprogramm ergaenzen
+    lw   $t0, 0($a0)
+  60:	8c880000 	lw	t0,0(a0)
+    srlv  $t1, $t0, $a2
+  64:	00c84806 	srlv	t1,t0,a2
+    and  $t2, $t1, $a1
+  68:	01255024 	and	t2,t1,a1
+    addiu $v0, $t2, 0
+  6c:	25420000 	addiu	v0,t2,0
+    jr   $ra                           # Ruecksprung
+  70:	03e00008 	jr	ra
+  74:	00000000 	nop
+
+00000078 <loesche_bit>:
+# int * Adresse = (int*) Adresswert;
+# *Adresse = *Adresse & ~(1 << Bitnummer);
+# ------------------------------------------------------------------------------
+loesche_bit:
+# TODO: Unterprogramm ergaenzen
+    ori $t5, $zero, 0xffff
+  78:	340dffff 	li	t5,0xffff
+    ori $t6, $zero, 16
+  7c:	340e0010 	li	t6,0x10
+    sllv $t7, $t5, $t6
+  80:	01cd7804 	sllv	t7,t5,t6
+    or $t8, $t7, $t5
+  84:	01edc025 	or	t8,t7,t5
+
+    ori $t0, $zero, 1
+  88:	34080001 	li	t0,0x1
+    sllv $t1, $t0, $a1
+  8c:	00a84804 	sllv	t1,t0,a1
+    xor $t4, $t1, $t8
+  90:	01386026 	xor	t4,t1,t8
+    lw   $t2, 0($a0)
+  94:	8c8a0000 	lw	t2,0(a0)
+    and   $t3, $t4, $t2
+  98:	018a5824 	and	t3,t4,t2
+    sw   $t3, 0($a0)
+  9c:	ac8b0000 	sw	t3,0(a0)
+    addiu $k1, $t3, 0
+  a0:	257b0000 	addiu	k1,t3,0
+    jr   $ra                           # Ruecksprung
+  a4:	03e00008 	jr	ra
+  a8:	00000000 	nop
+
+000000ac <schreibe_bitfeld>:
+# int * Adresse = (int*) Adresswert;
+# *Adresse = *Adresse & ~(Maske << Shift) | ((Wert & Maske) << Shift);
+# ------------------------------------------------------------------------------
+schreibe_bitfeld:
+# TODO: Unterprogramm ergaenzen
+    ori $t7, $zero, 0xffff
+  ac:	340fffff 	li	t7,0xffff
+    ori $t8, $zero, 16
+  b0:	34180010 	li	t8,0x10
+    sllv $t9, $t7, $t8
+  b4:	030fc804 	sllv	t9,t7,t8
+    or $t8, $t9, $t7
+  b8:	032fc025 	or	t8,t9,t7
+
+
+    lw   $t0, 0($a0)
+  bc:	8c880000 	lw	t0,0(a0)
+    sllv  $t1, $a2, $a3
+  c0:	00e64804 	sllv	t1,a2,a3
+    xor  $t2, $t1, $t8
+  c4:	01385026 	xor	t2,t1,t8
+    and  $t3, $t0, $t2
+  c8:	010a5824 	and	t3,t0,t2
+
+    and  $t4, $a1, $a2
+  cc:	00a66024 	and	t4,a1,a2
+    sllv $t5, $t4, $a3
+  d0:	00ec6804 	sllv	t5,t4,a3
+
+    or  $t6, $t3, $t5
+  d4:	016d7025 	or	t6,t3,t5
+    sw  $t6, 0($a0)
+  d8:	ac8e0000 	sw	t6,0(a0)
+    jr   $ra                           # // Ruecksprung
+  dc:	03e00008 	jr	ra
+  e0:	00000000 	nop
+
+000000e4 <multipliziere>:
+	.set Produkt, $s0                  # unsigned int Produkt;
+	.set bit, $s1                      # int bit;
+	.set a, $a0
+	.set b, $a1
+
+	addiu $sp, $sp, -8                 # Callee-Saved Register auf Stack sichern
+  e4:	27bdfff8 	addiu	sp,sp,-8
+	sw    $s0, 0($sp)
+  e8:	afb00000 	sw	s0,0(sp)
+	sw    $s1, 4($sp)
+  ec:	afb10004 	sw	s1,4(sp)
+
+# TODO: Unterprogramm ergaenzen
+
+
+    ori  bit, $zero, 0
+  f0:	34110000 	li	s1,0x0
+    ori  Produkt, $zero, 0
+  f4:	34100000 	li	s0,0x0
+
+000000f8 <naechsteStelle>:
+    naechsteStelle:
+    	addiu $t6, bit, -32
+  f8:	262effe0 	addiu	t6,s1,-32
+    	bgez $t6, end
+  fc:	05c10017 	bgez	t6,15c <end>
+ 100:	00000000 	nop
+
+    	addiu $sp, $sp, -12
+ 104:	27bdfff4 	addiu	sp,sp,-12
+    	sw a, 0($sp)
+ 108:	afa40000 	sw	a0,0(sp)
+    	sw b, 4($sp)
+ 10c:	afa50004 	sw	a1,4(sp)
+    	sw $ra, 8($sp)
+ 110:	afbf0008 	sw	ra,8(sp)
+    	or $a0, $zero, b
+ 114:	00052025 	or	a0,zero,a1
+    	or $a1, $zero, bit
+ 118:	00112825 	or	a1,zero,s1
+    	la $t5,bit_von
+ 11c:	3c0d0000 	lui	t5,0x0
+ 120:	25ad0008 	addiu	t5,t5,8
+    	jalr $ra, $t5
+ 124:	01a0f809 	jalr	t5
+ 128:	00000000 	nop
+    	lw a, 0($sp)
+ 12c:	8fa40000 	lw	a0,0(sp)
+    	lw b, 4($sp)
+ 130:	8fa50004 	lw	a1,4(sp)
+
+    	lw $ra, 8($sp)
+ 134:	8fbf0008 	lw	ra,8(sp)
+    	addiu $sp, $sp, 12
+ 138:	27bd000c 	addiu	sp,sp,12
+    	beq $v0, $zero, addierer
+ 13c:	10400002 	beqz	v0,148 <addierer>
+ 140:	00000000 	nop
+    	addu Produkt, Produkt, a
+ 144:	02048021 	addu	s0,s0,a0
+
+00000148 <addierer>:
+    addierer:
+    	ori  $t4, $zero, 1
+ 148:	340c0001 	li	t4,0x1
+    	sllv a, a, $t4
+ 14c:	01842004 	sllv	a0,a0,t4
+    	addiu bit, bit, 1
+ 150:	26310001 	addiu	s1,s1,1
+    	blez $zero, naechsteStelle
+ 154:	1800ffe8 	blez	zero,f8 <naechsteStelle>
+ 158:	00000000 	nop
+
+0000015c <end>:
+    end:
+    ori   $v0, Produkt, 0
+ 15c:	36020000 	ori	v0,s0,0x0
+
+
+	lw    $s0, 0($sp)
+ 160:	8fb00000 	lw	s0,0(sp)
+	lw    $s1, 4($sp)
+ 164:	8fb10004 	lw	s1,4(sp)
+	addiu $sp, $sp, +8                 # Callee-Saved Register vom Stack wiederherstellen
+ 168:	27bd0008 	addiu	sp,sp,8
+
+    jr    $ra
+ 16c:	03e00008 	jr	ra
+ 170:	00000000 	nop
+
+00000174 <main>:
+	.set Produkt,       $s2            # unsigned int Produkt
+	.set Highbyte,      $s3            # int Highbyte;
+	.set Lowbyte,       $s4            # int Lowbyte;
+	.set i,             $s5            # int i;
+
+    li    $sp, SP_INIT                 # Stackpointer initialisieren
+ 174:	341d8000 	li	sp,0x8000
+
+00000178 <Hauptschleife>:
+
+Hauptschleife:                         # while(1) {
+	# -----------------------------------------------------
+	# Multiplikator von den Schaltern einlesen (Bits 15..8)
+	# -----------------------------------------------------
+	la    $a0, In_Port                 #     Multiplikator = lese_bitfeld(In_Port, 0xff, 8);
+ 178:	34048100 	li	a0,0x8100
+	li    $a1, 0xff
+ 17c:	240500ff 	li	a1,255
+	li    $a2, 8
+ 180:	24060008 	li	a2,8
+	la    $t0, lese_bitfeld
+ 184:	3c080000 	lui	t0,0x0
+ 188:	25080060 	addiu	t0,t0,96
+	jalr  $ra, $t0
+ 18c:	0100f809 	jalr	t0
+ 190:	00000000 	nop
+	ori   Multiplikator, $v0, 0
+ 194:	34500000 	ori	s0,v0,0x0
+
+	# ---------------------------------------------------
+	# Multiplikand von den Schaltern einlesen (Bits 7..0)
+	# ---------------------------------------------------
+	la    $a0, In_Port                 #     Multiplikand = lese_bitfeld(In_Port, 0xff, 0);
+ 198:	34048100 	li	a0,0x8100
+	li    $a1, 0xff
+ 19c:	240500ff 	li	a1,255
+	li    $a2, 0
+ 1a0:	24060000 	li	a2,0
+	la    $t0, lese_bitfeld
+ 1a4:	3c080000 	lui	t0,0x0
+ 1a8:	25080060 	addiu	t0,t0,96
+	jalr  $ra, $t0
+ 1ac:	0100f809 	jalr	t0
+ 1b0:	00000000 	nop
+	ori   Multiplikand, $v0, 0
+ 1b4:	34510000 	ori	s1,v0,0x0
+
+	# -------------------------
+	# Multiplikation ausfuehren
+	# -------------------------
+    ori   $a0, Multiplikator, 0        #     Produkt = multipliziere(Multiplikator, Multiplikand);
+ 1b8:	36040000 	ori	a0,s0,0x0
+    ori   $a1, Multiplikand, 0
+ 1bc:	36250000 	ori	a1,s1,0x0
+	la    $t0, multipliziere
+ 1c0:	3c080000 	lui	t0,0x0
+ 1c4:	250800e4 	addiu	t0,t0,228
+	jalr  $ra, $t0
+ 1c8:	0100f809 	jalr	t0
+ 1cc:	00000000 	nop
+	ori   Produkt, $v0, 0
+ 1d0:	34520000 	ori	s2,v0,0x0
+
+000001d4 <Copy_init>:
+	# ------------------------------------
+	# Produkt bitweise im Speicher ablegen
+	# ------------------------------------
+	                                   #     for(i = 31; i >= 0; i--)
+Copy_init:
+	li    i, 31                        #         // i = 31
+ 1d4:	2415001f 	li	s5,31
+
+000001d8 <Copy_test>:
+
+Copy_test:
+	bltz  i, Copy_end                  #         // i >= 0
+ 1d8:	06a0001c 	bltz	s5,24c <Copy_end>
+ 1dc:	00000000 	nop
+	                                   #     {
+	ori   $a0, Produkt, 0              #         if(bit_von(Produkt, i))
+ 1e0:	36440000 	ori	a0,s2,0x0
+	ori   $a1, i, 0
+ 1e4:	36a50000 	ori	a1,s5,0x0
+	la    $t0, bit_von
+ 1e8:	3c080000 	lui	t0,0x0
+ 1ec:	25080008 	addiu	t0,t0,8
+	jalr  $ra, $t0
+ 1f0:	0100f809 	jalr	t0
+ 1f4:	00000000 	nop
+	beq   $v0, $zero, nicht_gesetzt
+ 1f8:	1040000a 	beqz	v0,224 <nicht_gesetzt>
+ 1fc:	00000000 	nop
+	                                   #         {
+	la    $a0, Ergebnis                #             setze_bit(Ergebnis, i);
+ 200:	3c040000 	lui	a0,0x0
+ 204:	24844000 	addiu	a0,a0,16384
+	ori   $a1, i, 0
+ 208:	36a50000 	ori	a1,s5,0x0
+	la    $t0, setze_bit
+ 20c:	3c080000 	lui	t0,0x0
+ 210:	25080044 	addiu	t0,t0,68
+	jalr  $ra, $t0
+ 214:	0100f809 	jalr	t0
+ 218:	00000000 	nop
+	beq   $zero, $zero, Copy_iter
+ 21c:	10000008 	b	240 <Copy_iter>
+ 220:	00000000 	nop
+
+00000224 <nicht_gesetzt>:
+	                                   #         } else {
+nicht_gesetzt:
+	la    $a0, Ergebnis                #             loesche_bit(Ergebnis, i);
+ 224:	3c040000 	lui	a0,0x0
+ 228:	24844000 	addiu	a0,a0,16384
+	ori   $a1, i, 0
+ 22c:	36a50000 	ori	a1,s5,0x0
+	la    $t0, loesche_bit
+ 230:	3c080000 	lui	t0,0x0
+ 234:	25080078 	addiu	t0,t0,120
+	jalr  $ra, $t0
+ 238:	0100f809 	jalr	t0
+ 23c:	00000000 	nop
+
+00000240 <Copy_iter>:
+	                                   #         }
+Copy_iter:
+	addiu i, i, -1                     #         // i--
+ 240:	26b5ffff 	addiu	s5,s5,-1
+	beq   $zero, $zero, Copy_test      #     } // for
+ 244:	1000ffe4 	b	1d8 <Copy_test>
+ 248:	00000000 	nop
+
+0000024c <Copy_end>:
+
+Copy_end:
+	# -------------------------------------------------
+	# Ergebnis-Highbyte bitweise aus dem Speicher lesen
+	# -------------------------------------------------
+	li    Highbyte, 0                  #     Highbyte = 0
+ 24c:	24130000 	li	s3,0
+
+00000250 <Highbyte_init>:
+
+Highbyte_init:                         #     for(i = 7; i >= 0; i--)
+	li    i, 7                         #         // i = 7
+ 250:	24150007 	li	s5,7
+
+00000254 <Highbyte_test>:
+
+Highbyte_test:
+	bltz  i, Highbyte_end              #         // i >= 0
+ 254:	06a00010 	bltz	s5,298 <Highbyte_end>
+ 258:	00000000 	nop
+	                                   #     {
+	li    $t0, 1					   #         Highbyte = Highbyte << 1;
+ 25c:	24080001 	li	t0,1
+	sllv  Highbyte, Highbyte, $t0
+ 260:	01139804 	sllv	s3,s3,t0
+
+	la    $a0, Ergebnis				   #         if(lese_bit(Ergebnis, i + 8))
+ 264:	3c040000 	lui	a0,0x0
+ 268:	24844000 	addiu	a0,a0,16384
+	addiu $a1, i, 8
+ 26c:	26a50008 	addiu	a1,s5,8
+	la    $t0, lese_bit
+ 270:	3c080000 	lui	t0,0x0
+ 274:	25080018 	addiu	t0,t0,24
+	jalr  $ra, $t0
+ 278:	0100f809 	jalr	t0
+ 27c:	00000000 	nop
+	blez  $v0, Highbyte_iter
+ 280:	18400002 	blez	v0,28c <Highbyte_iter>
+ 284:	00000000 	nop
+	                                   #         {
+	ori   Highbyte, Highbyte, 1		   #             Highbyte = Highbyte | 1;
+ 288:	36730001 	ori	s3,s3,0x1
+
+0000028c <Highbyte_iter>:
+									   #         } // if
+Highbyte_iter:
+	addiu i, i, -1                     #         // i--
+ 28c:	26b5ffff 	addiu	s5,s5,-1
+	beq   $zero, $zero, Highbyte_test  #     } // for
+ 290:	1000fff0 	b	254 <Highbyte_test>
+ 294:	00000000 	nop
+
+00000298 <Highbyte_end>:
+
+Highbyte_end:
+	# ------------------------------------------------
+	# Ergebnis-Lowbyte bitweise aus dem Speicher lesen
+	# ------------------------------------------------
+	li    Lowbyte, 0                   #     Lowbyte = 0
+ 298:	24140000 	li	s4,0
+
+0000029c <Lowbyte_init>:
+
+Lowbyte_init:                          #     for(i = 7; i >= 0; i--)
+	li    i, 7        				   #         // i = 7
+ 29c:	24150007 	li	s5,7
+
+000002a0 <Lowbyte_test>:
+
+Lowbyte_test:
+	bltz  i, Lowbyte_end               #         // i >= 0
+ 2a0:	06a00010 	bltz	s5,2e4 <Lowbyte_end>
+ 2a4:	00000000 	nop
+	                                   #     {
+	li    $t0, 1					   #         Lowbyte = Lowbyte << 1;
+ 2a8:	24080001 	li	t0,1
+	sllv  Lowbyte, Lowbyte, $t0
+ 2ac:	0114a004 	sllv	s4,s4,t0
+
+	la    $a0, Ergebnis				   #         if(lese_bit(Ergebnis, i))
+ 2b0:	3c040000 	lui	a0,0x0
+ 2b4:	24844000 	addiu	a0,a0,16384
+	ori   $a1, i, 0
+ 2b8:	36a50000 	ori	a1,s5,0x0
+	la    $t0, lese_bit
+ 2bc:	3c080000 	lui	t0,0x0
+ 2c0:	25080018 	addiu	t0,t0,24
+	jalr  $ra, $t0
+ 2c4:	0100f809 	jalr	t0
+ 2c8:	00000000 	nop
+	blez  $v0, Lowbyte_iter
+ 2cc:	18400002 	blez	v0,2d8 <Lowbyte_iter>
+ 2d0:	00000000 	nop
+	                                   #         {
+	ori   Lowbyte, Lowbyte, 1		   #             Lowbyte = Lowbyte | 1;
+ 2d4:	36940001 	ori	s4,s4,0x1
+
+000002d8 <Lowbyte_iter>:
+									   #         } // if
+Lowbyte_iter:
+	addiu i, i, -1                     #         // i--
+ 2d8:	26b5ffff 	addiu	s5,s5,-1
+	beq   $zero, $zero, Lowbyte_test   #     } // for
+ 2dc:	1000fff0 	b	2a0 <Lowbyte_test>
+ 2e0:	00000000 	nop
+
+000002e4 <Lowbyte_end>:
+
+Lowbyte_end:
+	# ------------------------------------------------
+	# Ergebnis-Highbyte auf LEDs (Bits 15..8) ausgeben
+	# ------------------------------------------------
+	la   $a0, Out_Port                 #     schreibe_bitfeld(Out_Port, Highbyte, 0xff, 8);
+ 2e4:	34048200 	li	a0,0x8200
+	ori  $a1, Highbyte, 0
+ 2e8:	36650000 	ori	a1,s3,0x0
+	ori  $a2, $zero, 0xff
+ 2ec:	340600ff 	li	a2,0xff
+	ori  $a3, $zero, 8
+ 2f0:	34070008 	li	a3,0x8
+	la   $t0, schreibe_bitfeld
+ 2f4:	3c080000 	lui	t0,0x0
+ 2f8:	250800ac 	addiu	t0,t0,172
+	jalr $ra, $t0
+ 2fc:	0100f809 	jalr	t0
+ 300:	00000000 	nop
+
+	# ------------------------------------------------
+	# Ergebnis-Lowbyte auf LEDs (Bits 7..0) ausgeben
+	# ------------------------------------------------
+	la   $a0, Out_Port                 #     schreibe_bitfeld(Out_Port, Lowbyte, 0xff, 0);
+ 304:	34048200 	li	a0,0x8200
+	ori  $a1, Lowbyte, 0
+ 308:	36850000 	ori	a1,s4,0x0
+	ori  $a2, $zero, 0xff
+ 30c:	340600ff 	li	a2,0xff
+	ori  $a3, $zero, 0
+ 310:	34070000 	li	a3,0x0
+	la   $t0, schreibe_bitfeld
+ 314:	3c080000 	lui	t0,0x0
+ 318:	250800ac 	addiu	t0,t0,172
+	jalr $ra, $t0
+ 31c:	0100f809 	jalr	t0
+ 320:	00000000 	nop
+
+	beq $zero, $zero, Hauptschleife    # } // while
+ 324:	1000ff94 	b	178 <Hauptschleife>
+ 328:	00000000 	nop
+
+Disassembly of section .data:
+
+00004000 <Ergebnis>:
+    4000:	decafbad 	ldc3	$10,-1107(s6)

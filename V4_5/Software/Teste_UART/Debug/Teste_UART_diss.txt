@@ -1,0 +1,664 @@
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000400  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00004000 l    d  .data	00000000 .data
+00004000 l       .data	00000000 Rx_Zeichen
+00004004 l       .data	00000000 Tx_Schreibindex
+00004008 l       .data	00000000 Tx_Leseindex
+0000400c l       .data	00000000 Tx_Anzahl
+00004010 l       .data	00000000 Tx_Fifo
+00004020 l       .data	00000000 Bin_to_ASCII
+00000000 l       .text	00000000 Reset_Vector
+00000308 l       .text	00000000 main
+00000008 l       .text	00000000 IP0_Vector
+00000010 l       .text	00000000 IP2_Vector
+00000018 l       .text	00000000 IP3_Vector
+00000088 l       .text	00000000 Transmit_Handler
+00000020 l       .text	00000000 IP4_Vector
+0000019c l       .text	00000000 Receive_Handler
+00000028 l       .text	00000000 bit_von
+00000038 l       .text	00000000 setze_bit
+00000054 l       .text	00000000 loesche_bit
+00000140 l       .text	00000000 Else
+00000124 l       .text	00000000 EndifInner
+0000016c l       .text	00000000 Endif
+000001cc l       .text	00000000 Rx_Zeichen_holen
+00000230 l       .text	00000000 Tx_Fifo_schreiben
+00000238 l       .text	00000000 Tx_Fifo_s_while
+000002c8 l       .text	00000000 Tx_Fifo_s_Z
+0000034c l       .text	00000000 Loop
+000003f8 l       .text	00000000 Kein_Zeichen
+
+
+
+Disassembly of section .text:
+
+00000000 <Reset_Vector>:
+# Einsprungpunkte
+# ------------------------------------------------------------------------------
+.section .text
+
+Reset_Vector:
+    beq $zero, $zero, main
+   0:	100000c1 	b	308 <main>
+   4:	00000000 	nop
+
+00000008 <IP0_Vector>:
+
+IP0_Vector:
+	beq $zero, $zero, IP0_Vector
+   8:	1000ffff 	b	8 <IP0_Vector>
+   c:	00000000 	nop
+
+00000010 <IP2_Vector>:
+
+IP2_Vector:
+    beq $zero, $zero, IP2_Vector
+  10:	1000ffff 	b	10 <IP2_Vector>
+  14:	00000000 	nop
+
+00000018 <IP3_Vector>:
+
+IP3_Vector:
+    beq $zero, $zero, Transmit_Handler
+  18:	1000001b 	b	88 <Transmit_Handler>
+  1c:	00000000 	nop
+
+00000020 <IP4_Vector>:
+
+IP4_Vector:
+    beq $zero, $zero, Receive_Handler
+  20:	1000005e 	b	19c <Receive_Handler>
+  24:	00000000 	nop
+
+00000028 <bit_von>:
+#   $a1: Bitnummer
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+bit_von:
+	srlv  $t0, $a0, $a1
+  28:	00a44006 	srlv	t0,a0,a1
+    andi  $v0, $t0, 1
+  2c:	31020001 	andi	v0,t0,0x1
+    jr    $ra
+  30:	03e00008 	jr	ra
+  34:	00000000 	nop
+
+00000038 <setze_bit>:
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+setze_bit:
+    ori   $t0, $zero, 1
+  38:	34080001 	li	t0,0x1
+    sllv  $t1, $t0, $a1
+  3c:	00a84804 	sllv	t1,t0,a1
+    lw    $t2, 0($a0)
+  40:	8c8a0000 	lw	t2,0(a0)
+    or    $t3, $t1, $t2
+  44:	012a5825 	or	t3,t1,t2
+    sw    $t3, 0($a0)
+  48:	ac8b0000 	sw	t3,0(a0)
+    jr    $ra
+  4c:	03e00008 	jr	ra
+  50:	00000000 	nop
+
+00000054 <loesche_bit>:
+#   $a0: Adresswert
+#   $a1: Bitnummer
+# ------------------------------------------------------------------------------
+# TODO: Unterprogramm aus Versuch 3 �bernehmen
+loesche_bit:
+    ori	  $t5, $zero, 0xffff
+  54:	340dffff 	li	t5,0xffff
+    ori   $t6, $zero, 16
+  58:	340e0010 	li	t6,0x10
+    sllv  $t7, $t5, $t6
+  5c:	01cd7804 	sllv	t7,t5,t6
+    or    $t8, $t7, $t5
+  60:	01edc025 	or	t8,t7,t5
+
+    ori   $t0, $zero, 1
+  64:	34080001 	li	t0,0x1
+    sllv  $t1, $t0, $a1
+  68:	00a84804 	sllv	t1,t0,a1
+    xor   $t4, $t1, $t8
+  6c:	01386026 	xor	t4,t1,t8
+    lw    $t2, 0($a0)
+  70:	8c8a0000 	lw	t2,0(a0)
+    and   $t3, $t4, $t2
+  74:	018a5824 	and	t3,t4,t2
+    sw    $t3, 0($a0)
+  78:	ac8b0000 	sw	t3,0(a0)
+    addiu $k1, $t3, 0
+  7c:	257b0000 	addiu	k1,t3,0
+    jr    $ra                             # Ruecksprung
+  80:	03e00008 	jr	ra
+  84:	00000000 	nop
+
+00000088 <Transmit_Handler>:
+# ------------------------------------------------------------------------------
+Transmit_Handler:
+# TODO: Interrupt-Handler ergaenzen
+# Achtung: ALLE (auch die in Unterprogrammen) verwendeten Register auf dem Stack sichern!
+# Am Ende die auf dem Stack gesicherten Register wiederherstellen!
+    addiu $sp, $sp, -40
+  88:	27bdffd8 	addiu	sp,sp,-40
+    sw    $t0, 0($sp)
+  8c:	afa80000 	sw	t0,0(sp)
+    sw    $t1, 4($sp)
+  90:	afa90004 	sw	t1,4(sp)
+    sw    $t2, 8($sp)
+  94:	afaa0008 	sw	t2,8(sp)
+    sw    $t3, 12($sp)
+  98:	afab000c 	sw	t3,12(sp)
+    sw    $t4, 16($sp)
+  9c:	afac0010 	sw	t4,16(sp)
+    sw    $t5, 20($sp)
+  a0:	afad0014 	sw	t5,20(sp)
+    sw    $t6, 24($sp)
+  a4:	afae0018 	sw	t6,24(sp)
+    sw    $t7, 28($sp)
+  a8:	afaf001c 	sw	t7,28(sp)
+    sw    $a0, 32($sp)
+  ac:	afa40020 	sw	a0,32(sp)
+    sw    $a1, 36($sp)
+  b0:	afa50024 	sw	a1,36(sp)
+
+    la    $t0, Tx_Anzahl                # if Tx_Anzahl <= 0  ==> Else
+  b4:	3c080000 	lui	t0,0x0
+  b8:	2508400c 	addiu	t0,t0,16396
+    lw    $t1, 0($t0)
+  bc:	8d090000 	lw	t1,0(t0)
+    blez  $t1, Else
+  c0:	1920001f 	blez	t1,140 <Else>
+  c4:	00000000 	nop
+
+    # *((int*)(UART_Basis + UART_TxData)) = Tx_Fifo[Tx_Leseindex];
+    la    $t1, Tx_Fifo
+  c8:	3c090000 	lui	t1,0x0
+  cc:	25294010 	addiu	t1,t1,16400
+    la    $t2, Tx_Leseindex
+  d0:	3c0a0000 	lui	t2,0x0
+  d4:	254a4008 	addiu	t2,t2,16392
+    lw    $t2, 0($t2)
+  d8:	8d4a0000 	lw	t2,0(t2)
+    addu  $t1, $t1, $t2
+  dc:	012a4821 	addu	t1,t1,t2
+    lb    $t2, 0($t1)
+  e0:	812a0000 	lb	t2,0(t1)
+    # ori   $t2, $zero, 0x30        # Test mit 0
+    li    $t0, UART_Basis
+  e4:	34088300 	li	t0,0x8300
+    sw    $t2, UART_TxData($t0)
+  e8:	ad0a0000 	sw	t2,0(t0)
+    
+
+    la    $t1, Tx_Leseindex             # Tx_Leseindex++
+  ec:	3c090000 	lui	t1,0x0
+  f0:	25294008 	addiu	t1,t1,16392
+    lw    $t0, 0($t1)
+  f4:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, 1
+  f8:	25080001 	addiu	t0,t0,1
+    sw    $t0, 0($t1)
+  fc:	ad280000 	sw	t0,0(t1)
+
+    la    $t0, Tx_Leseindex
+ 100:	3c080000 	lui	t0,0x0
+ 104:	25084008 	addiu	t0,t0,16392
+    lw    $t1, 0($t0)
+ 108:	8d090000 	lw	t1,0(t0)
+    ori   $t0, $zero, TX_FIFO_GROESSE
+ 10c:	34080010 	li	t0,0x10
+    bne   $t1, $t0, EndifInner          # if Tx_Leseindex /= TX_FIFO_GROESSE  ==> EndifInner
+ 110:	15280004 	bne	t1,t0,124 <EndifInner>
+ 114:	00000000 	nop
+
+    la    $t1, Tx_Leseindex
+ 118:	3c090000 	lui	t1,0x0
+ 11c:	25294008 	addiu	t1,t1,16392
+    sw    $zero, 0($t1)                 # Tx_Leseindex = 0
+ 120:	ad200000 	sw	zero,0(t1)
+
+00000124 <EndifInner>:
+
+    EndifInner:
+    la    $t1, Tx_Anzahl
+ 124:	3c090000 	lui	t1,0x0
+ 128:	2529400c 	addiu	t1,t1,16396
+    lw    $t0, 0($t1)
+ 12c:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, -1
+ 130:	2508ffff 	addiu	t0,t0,-1
+    sw    $t0, 0($t1)                   # Tx_Anzahl--
+ 134:	ad280000 	sw	t0,0(t1)
+    beq   $zero, $zero, Endif           # ==> Endif
+ 138:	1000000c 	b	16c <Endif>
+ 13c:	00000000 	nop
+
+00000140 <Else>:
+
+    Else:
+    li    $t0, UART_Basis
+ 140:	34088300 	li	t0,0x8300
+    addiu $a0, $t0, UART_Kontroll
+ 144:	25040008 	addiu	a0,t0,8
+
+    li    $a1, UART_TxD_IrEn
+ 148:	24050000 	li	a1,0
+
+    addiu $sp, $sp, -4
+ 14c:	27bdfffc 	addiu	sp,sp,-4
+
+    sw    $ra, 0($sp)
+ 150:	afbf0000 	sw	ra,0(sp)
+
+    la    $t0, loesche_bit
+ 154:	3c080000 	lui	t0,0x0
+ 158:	25080054 	addiu	t0,t0,84
+    jalr  $ra, $t0
+ 15c:	0100f809 	jalr	t0
+ 160:	00000000 	nop
+
+    lw    $ra, 0($sp)
+ 164:	8fbf0000 	lw	ra,0(sp)
+    addiu $sp, $sp, 4
+ 168:	27bd0004 	addiu	sp,sp,4
+
+0000016c <Endif>:
+
+    Endif:
+    lw    $t0, 0($sp)
+ 16c:	8fa80000 	lw	t0,0(sp)
+    lw    $t1, 4($sp)
+ 170:	8fa90004 	lw	t1,4(sp)
+    lw    $t2, 8($sp)
+ 174:	8faa0008 	lw	t2,8(sp)
+    lw    $t3, 12($sp)
+ 178:	8fab000c 	lw	t3,12(sp)
+    lw    $t4, 16($sp)
+ 17c:	8fac0010 	lw	t4,16(sp)
+    lw    $t5, 20($sp)
+ 180:	8fad0014 	lw	t5,20(sp)
+    lw    $t6, 24($sp)
+ 184:	8fae0018 	lw	t6,24(sp)
+    lw    $t7, 28($sp)
+ 188:	8faf001c 	lw	t7,28(sp)
+    lw    $a0, 32($sp)
+ 18c:	8fa40020 	lw	a0,32(sp)
+    lw    $a1, 36($sp)
+ 190:	8fa50024 	lw	a1,36(sp)
+    addiu $sp, $sp, 40
+ 194:	27bd0028 	addiu	sp,sp,40
+
+    eret
+ 198:	42000018 	eret
+
+0000019c <Receive_Handler>:
+# ------------------------------------------------------------------------------
+# void Receive_Handler()
+# ------------------------------------------------------------------------------
+Receive_Handler:
+    addiu $sp, $sp, -8
+ 19c:	27bdfff8 	addiu	sp,sp,-8
+    sw    $t0, 0($sp)
+ 1a0:	afa80000 	sw	t0,0(sp)
+    sw    $t1, 4($sp)
+ 1a4:	afa90004 	sw	t1,4(sp)
+
+    li    $t1, UART_Basis                     # Rx_Zeichen = *((char*)(UART_Basis + UART_RxData));
+ 1a8:	34098300 	li	t1,0x8300
+    lw    $t0, UART_RxData($t1)
+ 1ac:	8d280004 	lw	t0,4(t1)
+    la    $t1, Rx_Zeichen
+ 1b0:	3c090000 	lui	t1,0x0
+ 1b4:	25294000 	addiu	t1,t1,16384
+    sw    $t0, 0($t1)
+ 1b8:	ad280000 	sw	t0,0(t1)
+
+    lw    $t0, 0($sp)
+ 1bc:	8fa80000 	lw	t0,0(sp)
+    lw    $t1, 4($sp)
+ 1c0:	8fa90004 	lw	t1,4(sp)
+    addiu $sp, $sp, 8
+ 1c4:	27bd0008 	addiu	sp,sp,8
+    eret
+ 1c8:	42000018 	eret
+
+000001cc <Rx_Zeichen_holen>:
+# int Rx_Zeichen_holen()
+# ------------------------------------------------------------------------------
+#   $v0: Rueckgabewert
+# ------------------------------------------------------------------------------
+Rx_Zeichen_holen:
+    addiu $sp, $sp, -4
+ 1cc:	27bdfffc 	addiu	sp,sp,-4
+    sw    $ra, 0($sp)
+ 1d0:	afbf0000 	sw	ra,0(sp)
+
+    li    $a0, UART_Basis                     # loesche_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+ 1d4:	34048300 	li	a0,0x8300
+    addiu $a0, $a0, UART_Kontroll
+ 1d8:	24840008 	addiu	a0,a0,8
+    ori   $a1, $zero, UART_RxD_IrEn
+ 1dc:	34050001 	li	a1,0x1
+    la    $t1, loesche_bit
+ 1e0:	3c090000 	lui	t1,0x0
+ 1e4:	25290054 	addiu	t1,t1,84
+    jalr  $ra, $t1
+ 1e8:	0120f809 	jalr	t1
+ 1ec:	00000000 	nop
+
+    la    $t1, Rx_Zeichen                     # Zeichen = Rx_Zeichen
+ 1f0:	3c090000 	lui	t1,0x0
+ 1f4:	25294000 	addiu	t1,t1,16384
+    lw    $v0, 0($t1)
+ 1f8:	8d220000 	lw	v0,0(t1)
+    addiu $t0, $zero, -1                      # Rx_Zeichen = -1;
+ 1fc:	2408ffff 	li	t0,-1
+    sw    $t0, 0($t1)
+ 200:	ad280000 	sw	t0,0(t1)
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+ 204:	34048300 	li	a0,0x8300
+    addiu $a0, $a0, UART_Kontroll
+ 208:	24840008 	addiu	a0,a0,8
+    ori   $a1, $zero, UART_RxD_IrEn
+ 20c:	34050001 	li	a1,0x1
+    la    $t1, setze_bit
+ 210:	3c090000 	lui	t1,0x0
+ 214:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 218:	0120f809 	jalr	t1
+ 21c:	00000000 	nop
+
+    lw    $ra, 0($sp)
+ 220:	8fbf0000 	lw	ra,0(sp)
+    addiu $sp, $sp, 4
+ 224:	27bd0004 	addiu	sp,sp,4
+    jr    $ra                                 # return Zeichen
+ 228:	03e00008 	jr	ra
+ 22c:	00000000 	nop
+
+00000230 <Tx_Fifo_schreiben>:
+# void Tx_Fifo_schreiben(int Wert)
+# ------------------------------------------------------------------------------
+#   $a0: Wert
+# ------------------------------------------------------------------------------
+Tx_Fifo_schreiben:
+    addiu $sp, $sp, -4
+ 230:	27bdfffc 	addiu	sp,sp,-4
+    sw    $ra, 0($sp)
+ 234:	afbf0000 	sw	ra,0(sp)
+
+00000238 <Tx_Fifo_s_while>:
+
+Tx_Fifo_s_while:
+    la    $t1, Tx_Anzahl                      # while (Tx_Anzahl == TX_FIFO_GROESSE) {
+ 238:	3c090000 	lui	t1,0x0
+ 23c:	2529400c 	addiu	t1,t1,16396
+    lw    $t0, 0($t1)
+ 240:	8d280000 	lw	t0,0(t1)
+    addiu $t0, $t0, -TX_FIFO_GROESSE
+ 244:	2508fff0 	addiu	t0,t0,-16
+    beq   $t0, $zero, Tx_Fifo_s_while         # }
+ 248:	1100fffb 	beqz	t0,238 <Tx_Fifo_s_while>
+ 24c:	00000000 	nop
+
+    addiu $sp, $sp, -4                        # $a0 sichern
+ 250:	27bdfffc 	addiu	sp,sp,-4
+    sw    $a0, 0($sp)
+ 254:	afa40000 	sw	a0,0(sp)
+
+    li    $a0, UART_Basis                     # loesche_bit(UART_Basis + UART_Kontroll, UART_TxD_IrEn);
+ 258:	34048300 	li	a0,0x8300
+    addiu $a0, $a0, UART_Kontroll
+ 25c:	24840008 	addiu	a0,a0,8
+    ori   $a1, $zero, UART_TxD_IrEn
+ 260:	34050000 	li	a1,0x0
+    la    $t1, loesche_bit
+ 264:	3c090000 	lui	t1,0x0
+ 268:	25290054 	addiu	t1,t1,84
+    jalr  $ra, $t1
+ 26c:	0120f809 	jalr	t1
+ 270:	00000000 	nop
+
+    lw    $a0, 0($sp)                         # $a0 wiederherstellen
+ 274:	8fa40000 	lw	a0,0(sp)
+    addiu $sp, $sp, 4
+ 278:	27bd0004 	addiu	sp,sp,4
+
+    la     $t1, Tx_Schreibindex               # Tx_Fifo[Tx_Schreibindex] = Wert;
+ 27c:	3c090000 	lui	t1,0x0
+ 280:	25294004 	addiu	t1,t1,16388
+    lw     $t0, 0($t1)
+ 284:	8d280000 	lw	t0,0(t1)
+    la     $t1, Tx_Fifo
+ 288:	3c090000 	lui	t1,0x0
+ 28c:	25294010 	addiu	t1,t1,16400
+    addu   $t1, $t1, $t0
+ 290:	01284821 	addu	t1,t1,t0
+    sb     $a0, 0($t1)
+ 294:	a1240000 	sb	a0,0(t1)
+
+    la     $t1, Tx_Schreibindex               # Tx_Schreibindex++;
+ 298:	3c090000 	lui	t1,0x0
+ 29c:	25294004 	addiu	t1,t1,16388
+    lw     $t0, 0($t1)
+ 2a0:	8d280000 	lw	t0,0(t1)
+    addiu  $t0, $t0, 1
+ 2a4:	25080001 	addiu	t0,t0,1
+    sw     $t0, 0($t1)
+ 2a8:	ad280000 	sw	t0,0(t1)
+
+    addiu  $t0, $t0, -TX_FIFO_GROESSE         # if(Tx_Schreibindex==TX_FIFO_GROESSE) {
+ 2ac:	2508fff0 	addiu	t0,t0,-16
+    bne    $t0, $zero, Tx_Fifo_s_Z
+ 2b0:	15000005 	bnez	t0,2c8 <Tx_Fifo_s_Z>
+ 2b4:	00000000 	nop
+    ori    $t0, $zero, 0                      #     Tx_Schreibindex = 0;
+ 2b8:	34080000 	li	t0,0x0
+    la     $t1, Tx_Schreibindex
+ 2bc:	3c090000 	lui	t1,0x0
+ 2c0:	25294004 	addiu	t1,t1,16388
+    sw     $t0, 0($t1)                        # }
+ 2c4:	ad280000 	sw	t0,0(t1)
+
+000002c8 <Tx_Fifo_s_Z>:
+
+Tx_Fifo_s_Z:
+    la     $t1, Tx_Anzahl                     # Tx_Anzahl++;
+ 2c8:	3c090000 	lui	t1,0x0
+ 2cc:	2529400c 	addiu	t1,t1,16396
+    lw     $t0, 0($t1)
+ 2d0:	8d280000 	lw	t0,0(t1)
+    addiu  $t0, $t0, 1
+ 2d4:	25080001 	addiu	t0,t0,1
+    sw     $t0, 0($t1)
+ 2d8:	ad280000 	sw	t0,0(t1)
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_TxD_IrEn);
+ 2dc:	34048300 	li	a0,0x8300
+    addiu $a0, $a0, UART_Kontroll
+ 2e0:	24840008 	addiu	a0,a0,8
+    ori   $a1, $zero, UART_TxD_IrEn
+ 2e4:	34050000 	li	a1,0x0
+    la    $t1, setze_bit
+ 2e8:	3c090000 	lui	t1,0x0
+ 2ec:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 2f0:	0120f809 	jalr	t1
+ 2f4:	00000000 	nop
+
+    lw    $ra, 0($sp)
+ 2f8:	8fbf0000 	lw	ra,0(sp)
+    addiu $sp, $sp, 4
+ 2fc:	27bd0004 	addiu	sp,sp,4
+
+    jr    $ra
+ 300:	03e00008 	jr	ra
+ 304:	00000000 	nop
+
+00000308 <main>:
+# void main()
+# ------------------------------------------------------------------------------
+main:
+    .set Zeichen, $s0
+
+    li    $sp, SP_INIT                        # // Stack initialisieren
+ 308:	341d8000 	li	sp,0x8000
+
+    la    $t1, Rx_Zeichen                     # Rx_Zeichen = -1;
+ 30c:	3c090000 	lui	t1,0x0
+ 310:	25294000 	addiu	t1,t1,16384
+    addiu $t0, $zero, -1
+ 314:	2408ffff 	li	t0,-1
+    sw    $t0, 0($t1)
+ 318:	ad280000 	sw	t0,0(t1)
+
+	mfc0  $t0, Status                         # Interrupts im Coprozessor 0 freigeben
+ 31c:	40086000 	mfc0	t0,c0_status
+	ori   $t0, $t0, IP3
+ 320:	35080800 	ori	t0,t0,0x800
+	ori   $t0, $t0, IP4
+ 324:	35081000 	ori	t0,t0,0x1000
+	mtc0  $t0, Status
+ 328:	40886000 	mtc0	t0,c0_status
+
+    ei    $zero                               # // Interrupts freigeben
+ 32c:	41606020 	ei
+
+    li    $a0, UART_Basis                     # setze_bit(UART_Basis + UART_Kontroll, UART_RxD_IrEn);
+ 330:	34048300 	li	a0,0x8300
+    addiu $a0, $a0, UART_Kontroll
+ 334:	24840008 	addiu	a0,a0,8
+    ori   $a1, $zero, UART_RxD_IrEn
+ 338:	34050001 	li	a1,0x1
+    la    $t1, setze_bit
+ 33c:	3c090000 	lui	t1,0x0
+ 340:	25290038 	addiu	t1,t1,56
+    jalr  $ra, $t1
+ 344:	0120f809 	jalr	t1
+ 348:	00000000 	nop
+
+0000034c <Loop>:
+
+Loop:                               # while(1) {
+    la    $t1, Rx_Zeichen_holen     #     int Zeichen = Rx_Zeichen_holen();
+ 34c:	3c090000 	lui	t1,0x0
+ 350:	252901cc 	addiu	t1,t1,460
+    jalr  $ra, $t1
+ 354:	0120f809 	jalr	t1
+ 358:	00000000 	nop
+    ori   Zeichen, $v0, 0
+ 35c:	34500000 	ori	s0,v0,0x0
+
+    bltz  Zeichen, Kein_Zeichen     #     if(Zeichen >= 0) {
+ 360:	06000025 	bltz	s0,3f8 <Kein_Zeichen>
+ 364:	00000000 	nop
+
+    ori   $a0, $zero, '0'           #         Tx_Fifo_schreiben('0');
+ 368:	34040030 	li	a0,0x30
+    la    $t1, Tx_Fifo_schreiben
+ 36c:	3c090000 	lui	t1,0x0
+ 370:	25290230 	addiu	t1,t1,560
+    jalr  $ra, $t1
+ 374:	0120f809 	jalr	t1
+ 378:	00000000 	nop
+
+    ori   $a0, $zero, 'x'           #         Tx_Fifo_schreiben('x');
+ 37c:	34040078 	li	a0,0x78
+    la    $t1, Tx_Fifo_schreiben
+ 380:	3c090000 	lui	t1,0x0
+ 384:	25290230 	addiu	t1,t1,560
+    jalr  $ra, $t1
+ 388:	0120f809 	jalr	t1
+ 38c:	00000000 	nop
+
+    ori   $t1, $zero, 4             #         int Hi=(Zeichen>>4) & 0xf;
+ 390:	34090004 	li	t1,0x4
+    srlv  $t0, Zeichen, $t1
+ 394:	01304006 	srlv	t0,s0,t1
+    andi  $t0, $t0, 0xf
+ 398:	3108000f 	andi	t0,t0,0xf
+    la    $t1, Bin_to_ASCII         #         Tx_Fifo_schreiben(Bin_to_ASCII[Hi]);
+ 39c:	3c090000 	lui	t1,0x0
+ 3a0:	25294020 	addiu	t1,t1,16416
+    addu  $t1, $t0, $t1
+ 3a4:	01094821 	addu	t1,t0,t1
+    lb    $a0, 0($t1)
+ 3a8:	81240000 	lb	a0,0(t1)
+    la    $t1, Tx_Fifo_schreiben
+ 3ac:	3c090000 	lui	t1,0x0
+ 3b0:	25290230 	addiu	t1,t1,560
+    jalr  $ra, $t1
+ 3b4:	0120f809 	jalr	t1
+ 3b8:	00000000 	nop
+
+    ori   $t0, Zeichen, 0           #         int Lo = Zeichen & 0xf;
+ 3bc:	36080000 	ori	t0,s0,0x0
+    andi  $t0, $t0, 0xf
+ 3c0:	3108000f 	andi	t0,t0,0xf
+    la    $t1, Bin_to_ASCII         #         Tx_Fifo_schreiben(Bin_to_ASCII[Lo]);
+ 3c4:	3c090000 	lui	t1,0x0
+ 3c8:	25294020 	addiu	t1,t1,16416
+    addu  $t1, $t0, $t1
+ 3cc:	01094821 	addu	t1,t0,t1
+    lb    $a0, 0($t1)
+ 3d0:	81240000 	lb	a0,0(t1)
+    la    $t1, Tx_Fifo_schreiben
+ 3d4:	3c090000 	lui	t1,0x0
+ 3d8:	25290230 	addiu	t1,t1,560
+    jalr  $ra, $t1
+ 3dc:	0120f809 	jalr	t1
+ 3e0:	00000000 	nop
+
+    ori   $a0, $zero, '\n'          #         Tx_Fifo_schreiben('\n');
+ 3e4:	3404000a 	li	a0,0xa
+    la    $t1, Tx_Fifo_schreiben
+ 3e8:	3c090000 	lui	t1,0x0
+ 3ec:	25290230 	addiu	t1,t1,560
+    jalr  $ra, $t1
+ 3f0:	0120f809 	jalr	t1
+ 3f4:	00000000 	nop
+
+000003f8 <Kein_Zeichen>:
+
+Kein_Zeichen:                       #     }
+    beq   $zero, $zero, Loop        # }
+ 3f8:	1000ffd4 	b	34c <Loop>
+ 3fc:	00000000 	nop
+
+Disassembly of section .data:
+
+00004000 <Rx_Zeichen>:
+    4000:	00000000 	nop
+
+00004004 <Tx_Schreibindex>:
+    4004:	00000000 	nop
+
+00004008 <Tx_Leseindex>:
+    4008:	00000000 	nop
+
+0000400c <Tx_Anzahl>:
+    400c:	00000000 	nop
+
+00004010 <Tx_Fifo>:
+	...
+
+00004020 <Bin_to_ASCII>:
+    4020:	33323130 	andi	s2,t9,0x3130
+    4024:	37363534 	ori	s6,t9,0x3534
+    4028:	42413938 	c0	0x413938
+    402c:	46454443 	c1	0x454443

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Apr 20 17:15:21 2021
+# Process ID: 9800
+# Current directory: C:/Users/Marcel/Downloads/V1_2021-03-26/V1/BlinkProject/BlinkProject.runs/synth_1
+# Command line: vivado.exe -log BlinkSystem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BlinkSystem.tcl
+# Log file: C:/Users/Marcel/Downloads/V1_2021-03-26/V1/BlinkProject/BlinkProject.runs/synth_1/BlinkSystem.vds
+# Journal file: C:/Users/Marcel/Downloads/V1_2021-03-26/V1/BlinkProject/BlinkProject.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source BlinkSystem.tcl -notrace

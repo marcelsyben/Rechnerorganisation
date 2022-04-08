@@ -1,0 +1,996 @@
+
+**** Build of configuration Debug for project Stoppuhr ****
+
+Nothing to build for project Stoppuhr
+17:18:33 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002dc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:19:02 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"   
+c:/tools/mips-sourcery/bin/../lib/gcc/mips-sde-elf/5.3.0/../../../../mips-sde-elf/bin/ld.exe: no input files
+collect2.exe: error: ld returned 1 exit status
+make: *** [Stoppuhr.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+****  of configuration Debug for project Stoppuhr ****
+
+Nothing to build for project Stoppuhr
+17:19:07 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000038c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+15:53:09 **** Clean-only build of configuration Debug for project Stoppuhr ****
+make clean 
+rm -rf  ./source/Stoppuhr.o  Stoppuhr.elf
+' '
+15:53:10 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000390  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:09:50 **** Clean-only build of configuration Debug for project Stoppuhr ****
+make clean 
+rm -rf  ./source/Stoppuhr.o  Stoppuhr.elf
+' '
+16:09:50 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:10:04 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:52:43 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:02:17 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:02:37 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:08:11 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:09:52 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:20:23 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+00:27:23 **** Clean-only build of configuration Debug for project Stoppuhr ****
+make clean 
+rm -rf  ./source/Stoppuhr.o  Stoppuhr.elf
+' '
+00:27:23 **** Auto Build of configuration Debug for project Stoppuhr ****
+make all 
+'Building file: ../source/Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Stoppuhr.o" "../source/Stoppuhr.S"
+'Finished building: ../source/Stoppuhr.S'
+' '
+'Building target: Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Stoppuhr/source/lscript.ld -Xlinker -EL -o "Stoppuhr.elf"  ./source/Stoppuhr.o   
+'Finished building target: Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Stoppuhr.elf > Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Stoppuhr.elf Stoppuhr.hex
+
+Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000394  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000004  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+00:28:17 **** Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002a8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+00:31:44 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002f0  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+00:46:23 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000404  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:26:45 **** Clean-only build of configuration Debug for project Teste_UART ****
+make clean 
+rm -rf  ./source/Teste_UART.o  Teste_UART.elf
+' '
+16:26:46 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003dc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:30:49 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003dc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:50:35 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+../source/Teste_UART.S: Assembler messages:
+../source/Teste_UART.S:155: Error: operand 3 must be an immediate expression `addiu $t1,$t1,$t2'
+../source/Teste_UART.S:158: Error: invalid operands `sw $t2,UART_TxData(UART_Basis)'
+make: *** [source/Teste_UART.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:51:08 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+../source/Teste_UART.S: Assembler messages:
+../source/Teste_UART.S:158: Error: invalid operands `sw $t2,UART_TxData(UART_Basis)'
+make: *** [source/Teste_UART.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:52:35 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003fc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:04:06 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000400  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:25:17 **** Clean-only build of configuration Debug for project Teste_UART ****
+make clean 
+rm -rf  ./source/Teste_UART.o  Teste_UART.elf
+' '
+16:25:18 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003b8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:25:44 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003b8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:30:13 **** Clean-only build of configuration Debug for project Teste_UART ****
+make clean 
+rm -rf  ./source/Teste_UART.o  Teste_UART.elf
+' '
+16:30:13 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000400  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+16:47:30 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000400  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:04:58 **** Auto Build of configuration Debug for project Teste_UART ****
+make all 
+'Building file: ../source/Teste_UART.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Teste_UART.o" "../source/Teste_UART.S"
+'Finished building: ../source/Teste_UART.S'
+' '
+'Building target: Teste_UART.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Teste_UART/source/lscript.ld -Xlinker -EL -o "Teste_UART.elf"  ./source/Teste_UART.o   
+'Finished building target: Teste_UART.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Teste_UART.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Teste_UART.elf > Teste_UART_diss.txt & mips-sde-elf-objcopy.exe -O ihex Teste_UART.elf Teste_UART.hex
+
+Teste_UART.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000400  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000030  00004000  00004000  00014000  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:21:21 **** Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005c4  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:22:14 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005c4  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:36:35 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000674  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:37:38 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000067c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+17:49:20 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000067c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:11:28 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000067c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:25:23 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+18:26:02 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+18:28:55 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+18:30:01 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+18:31:49 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+18:44:04 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000074c  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:46:16 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000748  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:55:15 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007ec  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+18:59:25 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007c8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+19:00:35 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007c8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+19:07:04 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007c8  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+19:08:56 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007fc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '
+19:09:34 **** Incremental Build of configuration Debug for project Teste_UART ****
+make all 
+make: Nothing to be done for `all'.
+19:10:33 **** Incremental Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+make: Nothing to be done for `all'.
+19:10:57 **** Incremental Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+make: Nothing to be done for `all'.
+19:12:20 **** Auto Build of configuration Debug for project Erweiterte_Stoppuhr ****
+make all 
+'Building file: ../source/Erweiterte_Stoppuhr.S'
+'Invoking: Cross GCC Assembler'
+mips-sde-elf-as -EL -g -gstabs+ -mips32r2  -o "source/Erweiterte_Stoppuhr.o" "../source/Erweiterte_Stoppuhr.S"
+'Finished building: ../source/Erweiterte_Stoppuhr.S'
+' '
+'Building target: Erweiterte_Stoppuhr.elf'
+'Invoking: Cross GCC Linker'
+mips-sde-elf-gcc -nostartfiles -nodefaultlibs -nostdlib -static -Xlinker -TC:/Users/Marcel/Desktop/V4_5/Software/Erweiterte_Stoppuhr/source/lscript.ld -Xlinker -EL -o "Erweiterte_Stoppuhr.elf"  ./source/Erweiterte_Stoppuhr.o   
+'Finished building target: Erweiterte_Stoppuhr.elf'
+' '
+make --no-print-directory post-build
+mips-sde-elf-objdump.exe -h -j.text -j.data -j.bss Erweiterte_Stoppuhr.elf & mips-sde-elf-objdump.exe -h -t -j.text -j.data -j.bss -S Erweiterte_Stoppuhr.elf > Erweiterte_Stoppuhr_diss.txt & mips-sde-elf-objcopy.exe -O ihex Erweiterte_Stoppuhr.elf Erweiterte_Stoppuhr.hex
+
+Erweiterte_Stoppuhr.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007fc  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000034  00004000  00004000  00014000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+' '

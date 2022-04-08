@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.881088312/PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.881088312/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.881088312/PATH/value=C\:\\Tools\\mips-sourcery\\bin;C\:/Program Files/AdoptOpenJDK/jdk-8.0.232.09-hotspot/bin/../jre/bin/server;C\:/Program Files/AdoptOpenJDK/jdk-8.0.232.09-hotspot/bin/../jre/bin;C\:/Program Files/AdoptOpenJDK/jdk-8.0.232.09-hotspot/bin/../jre/lib/amd64;C\:\\Program Files\\AdoptOpenJDK\\jdk-8.0.232.09-hotspot\\bin;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Windows\\System32\\OpenSSH\\;C\:\\Program Files\\TortoiseSVN\\bin;C\:\\Program Files\\TortoiseGit\\bin;C\:\\Program Files\\Git\\cmd;C\:\\Users\\rainer\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\;C\:\\Users\\rainer\\AppData\\Local\\Programs\\Python\\Python38\\;C\:\\Users\\rainer\\AppData\\Local\\Microsoft\\WindowsApps;;C\:\\Users\\rainer\\eclipse\\cpp-2019-12\\eclipse
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.881088312/append=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.881088312/appendContributed=true

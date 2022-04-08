@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Stoppuhr/source/Stoppuhr.S&apos;" deleteContents="false" description="Delete resource &apos;Stoppuhr/source/Stoppuhr.S&apos;" element1="/Stoppuhr/source/Stoppuhr.S" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1622560742541"/>&#x0A;<refactoring comment="Delete resource &apos;Stoppuhr/source/lscript.ld&apos;" deleteContents="false" description="Delete resource &apos;Stoppuhr/source/lscript.ld&apos;" element1="/Stoppuhr/source/lscript.ld" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1622560744779"/>
+</session>

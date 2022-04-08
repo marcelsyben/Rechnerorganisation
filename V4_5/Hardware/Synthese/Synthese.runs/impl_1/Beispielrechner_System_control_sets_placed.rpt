@@ -1,0 +1,118 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Wed Jun  9 18:15:56 2021
+| Host         : DESKTOP-U11FC4T running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Beispielrechner_System_control_sets_placed.rpt
+| Design       : Beispielrechner_System
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    40 |
+|    Minimum number of control sets                        |    40 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    86 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    40 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |    10 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     5 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    23 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             436 |          136 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             127 |           43 |
+| Yes          | No                    | No                     |             370 |          123 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             349 |          147 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------+---------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+----------------+
+| Clock Signal |                                  Enable Signal                                  |                                Set/Reset Signal                                | Slice Load Count | Bel Load Count |
++--------------+---------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+----------------+
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/resume1                                   |                                                                                |                1 |              4 |
+|  CLK_BUFG    | Processor_Inst/core/IM0                                                         | Processor_Inst/reset_cpu                                                       |                1 |              4 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.div/ControlUnit.state_reg[2]_0[1]              | Processor_Inst/reset_cpu                                                       |                4 |              4 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/EnableRD                                  | Processor_Inst/swi/Wishbone_Interface/Output_Unit.DataPath.ReadData[3]_i_1_n_0 |                4 |              4 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/EnIntervalCount                           | Processor_Inst/swi/Wishbone_Interface/IntervalCount                            |                1 |              5 |
+|  CLK_BUFG    |                                                                                 | Processor_Inst/swi/Serial_input/cntval[7]_i_1_n_0                              |                2 |              5 |
+|  CLK_BUFG    | Processor_Inst/core/Input_Unit.DataPath.Address_reg[0]_1[0]                     | Processor_Inst/RST_O                                                           |                1 |              5 |
+|  CLK_BUFG    | Processor_Inst/core/Input_Unit.DataPath.Address_reg[1][0]                       | Processor_Inst/RST_O                                                           |                1 |              5 |
+|  CLK_BUFG    | Processor_Inst/core/Input_Unit.DataPath.Address_reg[0]_2[0]                     | Processor_Inst/RST_O                                                           |                2 |              5 |
+|  CLK_BUFG    | Processor_Inst/core/Output_Unit.ControlPath.WE_O_reg_0[0]                       | Processor_Inst/RST_O                                                           |                2 |              5 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.mult/E[0]                                      | Processor_Inst/reset_cpu                                                       |                6 |              7 |
+|  CLK_BUFG    |                                                                                 | Processor_Inst/swi/Serial_input/value[9]_i_1_n_0                               |                2 |              8 |
+|  CLK_BUFG    | Processor_Inst/swi/Serial_output/control_path.Zero_reg_0                        |                                                                                |                3 |              8 |
+|  CLK_BUFG    | UART_inst/Empfaenger/E[0]                                                       | Processor_Inst/RST_O                                                           |                2 |              8 |
+|  CLK_BUFG    | UART_inst/Empfaenger/p_7_in                                                     |                                                                                |                2 |              8 |
+|  CLK_BUFG    | Processor_Inst/swi/Serial_input/value[9]_i_2_n_0                                | Processor_Inst/swi/Serial_input/value[9]_i_1_n_0                               |                2 |              9 |
+|  CLK_BUFG    |                                                                                 | SSP_inst/sieben_seg/Count_v[15]_i_1_n_0                                        |                4 |             15 |
+|  CLK_BUFG    |                                                                                 | Processor_Inst/RST_O                                                           |               10 |             17 |
+|  CLK_BUFG    | Processor_Inst/core/Inst_En                                                     | Processor_Inst/reset_cpu                                                       |               15 |             26 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.div/ControlUnit.state_reg[2]_0[0]              | Processor_Inst/reset_cpu                                                       |               16 |             28 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/Output_Unit.DataPath.ReadData[31]_i_1_n_0 |                                                                                |               15 |             28 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/ShiftWD                                   |                                                                                |               15 |             32 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/ControlUnit.Reg_RE_reg[0]                 |                                                                                |                6 |             32 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/Output_Unit.ControlPath.STB_O_i_reg_1[0]  |                                                                                |               14 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.div/Init                                       |                                                                                |                9 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.div/ControlUnit.state_reg[1][0]                | Processor_Inst/reset_cpu                                                       |               18 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.ALU.div/ControlUnit.state_reg[1]_0[0]              | Processor_Inst/reset_cpu                                                       |               13 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.PC_R[0]_i_1_n_0                                    | Processor_Inst/reset_cpu                                                       |                9 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/DataPath.PC_and_Exceptions.EPC[31]_i_1_n_0                  | Processor_Inst/reset_cpu                                                       |                8 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/E[0]                                                        |                                                                                |                6 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/Input_Unit.DataPath.Address_reg[0]_0[0]                     | Processor_Inst/RST_O                                                           |               14 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/EPrefetch                                                   |                                                                                |               12 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/Exc_Enter                                                   |                                                                                |                8 |             32 |
+|  CLK_BUFG    | Processor_Inst/swi/Wishbone_Interface/ShiftA                                    |                                                                                |               13 |             32 |
+|  CLK_BUFG    | Processor_Inst/core/Output_Unit.ControlPath.WE_O_reg[0]                         | Processor_Inst/RST_O                                                           |               16 |             32 |
+|  CLK_BUFG    |                                                                                 | Processor_Inst/core/DataPath.ALU.div/Init                                      |               10 |             39 |
+|  CLK_BUFG    | Processor_Inst/core/PC_R                                                        | Processor_Inst/core/RDs0_i_1_n_0                                               |               12 |             42 |
+|  CLK_BUFG    |                                                                                 | Processor_Inst/reset_cpu                                                       |               15 |             43 |
+|  CLK_BUFG    | Processor_Inst/core/ControlUnit.Start_Div_reg_n_0                               |                                                                                |               19 |             66 |
+|  CLK_BUFG    |                                                                                 |                                                                                |              160 |            628 |
++--------------+---------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+----------------+
+
+

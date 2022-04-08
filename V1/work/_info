@@ -1,0 +1,169 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.07, Jul 22 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Marcel/Downloads/V1_2021-03-26/V1
+Emodulocounter
+Z1 w1618924127
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 20
+R0
+Z4 8ModuloCounter.vhd
+Z5 FModuloCounter.vhd
+l0
+Z6 L11 1
+VhNb?[2jR74MF[di6dMIAZ3
+!s100 583L;BXeh0Wj:EmBkaQS71
+Z7 OV;C;2020.3;71
+32
+Z8 !s110 1618930783
+!i10b 1
+Z9 !s108 1618930783.000000
+Z10 !s90 -reportprogress|300|ModuloCounter.vhd|
+Z11 !s107 ModuloCounter.vhd|
+!i113 1
+Z12 tExplicit 1 CvgOpt 0
+Artl
+Z13 DEx4 work 13 modulocounter 0 22 hNb?[2jR74MF[di6dMIAZ3
+R3
+R2
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+!i122 20
+l28
+L27 30
+VJ0eQZMkD3S1FLH9Yf91JZ3
+!s100 1mLa2U=<E`2bLhjBbBU^50
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Emodulocounter_tb
+Z15 w1584087902
+!i122 21
+R0
+Z16 8ModuloCounter_tb.vhd
+Z17 FModuloCounter_tb.vhd
+l0
+L8 1
+VHYknna]X@4_]m9;fkf<Lg2
+!s100 U^HinE;cMFAcU5dQcKG1Y2
+R7
+32
+R8
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|ModuloCounter_tb.vhd|
+Z19 !s107 ModuloCounter_tb.vhd|
+!i113 1
+R12
+Atb
+R13
+Z20 DEx4 work 16 modulocounter_tb 0 22 HYknna]X@4_]m9;fkf<Lg2
+R14
+R2
+R3
+!i122 21
+l23
+Z21 L15 76
+Z22 VC0C?=CL^1:Sz]dHNlK`>52
+Z23 !s100 @j7V0<40e:CDP@:9bW2g[0
+R7
+32
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+Eupdowncounter
+Z24 w1618923737
+R2
+R3
+!i122 16
+R0
+Z25 8UpDownCounter.vhd
+Z26 FUpDownCounter.vhd
+l0
+R6
+V]mno6?TFH@ldnPo`;[:6d0
+!s100 IAiHdffFMDjki3bnT:nQd3
+R7
+32
+Z27 !s110 1618930511
+!i10b 1
+Z28 !s108 1618930511.000000
+Z29 !s90 -reportprogress|300|UpDownCounter.vhd|
+Z30 !s107 UpDownCounter.vhd|
+!i113 1
+R12
+Artl
+Z31 DEx4 work 13 updowncounter 0 22 ]mno6?TFH@ldnPo`;[:6d0
+R3
+R2
+R14
+!i122 16
+l28
+L27 32
+VSHfJ:Gk31aFog1CB1QUHA1
+!s100 NLemU[B[H0l6HbjYI<1g]2
+R7
+32
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R12
+Eupdowncounter_tb
+R15
+!i122 17
+R0
+Z32 8UpDownCounter_tb.vhd
+Z33 FUpDownCounter_tb.vhd
+l0
+L8 1
+VmT_z@hA]_bniZ;j>4QBZE2
+!s100 Mk8a;9PJlGmAHhnaDdLBg0
+R7
+32
+R27
+!i10b 1
+R28
+Z34 !s90 -reportprogress|300|UpDownCounter_tb.vhd|
+Z35 !s107 UpDownCounter_tb.vhd|
+!i113 1
+R12
+Atb
+R31
+DEx4 work 16 updowncounter_tb 0 22 mT_z@hA]_bniZ;j>4QBZE2
+R14
+R2
+R3
+!i122 17
+l23
+L15 107
+V]kFD1gG6OJjjm5XnkzKC23
+!s100 BinKUF;cE]ADZ6MfW`AjO3
+R7
+32
+R27
+!i10b 1
+R28
+R34
+R35
+!i113 1
+R12
